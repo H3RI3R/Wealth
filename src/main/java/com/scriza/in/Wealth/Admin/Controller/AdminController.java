@@ -1,4 +1,4 @@
-package com.scriza.in.Wealth.User.Controller;
+package com.scriza.in.Wealth.Admin.Controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

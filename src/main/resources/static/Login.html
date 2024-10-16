@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="assets/css/loginStyle.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body style="background-color: springgreen; ">
+    <div class="container">
+        <div class="image-container">
+            <img src="https://images.pexels.com/photos/2033997/pexels-photo-2033997.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Background Image">
+        </div>
+        <div class="form-container" style="background-color: aquamarine;">
+            <button type="button" id="backToLogin" class="btn btn-secondary" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+            </button> 
+    
+            <!-- Sign In Heading -->
+             <h1 class="headingh1"> #Wealth</h1>
+            <h2 id="loginTitle" class="login-title">Sign in</h2>
+            
+            <!-- Sign Up Heading -->
+            <h2 id="signUpTitle" class="login-title hidden">Sign Up</h2>
+    
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-dark login-button">Login</button>
+                <a href="#" id="forgotPasswordLink">Forgot your password?</a>
+                <p>
+                    Need an account? <a href="#" id="signUpLink" class="text-reset">Sign up here</a>
+                </p>
+            </form>
+    
+            <!-- Forgot Password Form -->
+            <form id="forgotPasswordForm" class="hidden">
+                <div class="input-group">
+                    <label for="resetEmail">Enter your email</label>
+                    <input type="email" id="resetEmail" name="resetEmail" required>
+                </div>
+                <button type="submit" class="login-button">Submit</button>
+            </form>
+    
+            <!-- OTP Form -->
+            <form id="otpForm" class="hidden">
+                <div class="input-group">
+                    <label for="otp">Enter OTP</label>
+                    <input type="text" id="otp" name="otp" required>
+                </div>
+                <button type="submit" class="login-button">Verify OTP</button>
+            </form>
+    
+            <!-- Reset Password Form -->
+            <form id="resetPasswordForm" class="hidden">
+                <div class="input-group">
+                    <label for="newPassword">Enter New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Re-enter New Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="login-button">Reset Password</button>
+            </form>
+    
+            <!-- Sign-Up Form -->
+            <form id="signUpForm" class="hidden">
+                <div class="input-group">
+                    <input type="text" id="signupName" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="signupEmail" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signupPassword" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-dark login-button">Sign Up</button>
+                <p>
+                    Already have an account? <a href="#" id="backToLoginLink" class="text-reset">Login here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('forgotPasswordLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('forgotPasswordForm').classList.remove('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('backToLogin').style.display = 'block';
+        });
+    
+        document.getElementById('backToLogin').addEventListener('click', function() {
+            document.getElementById('forgotPasswordForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('signUpForm').classList.add('hidden');
+            document.getElementById('loginTitle').classList.remove('hidden');
+            document.getElementById('signUpTitle').classList.add('hidden');
+            document.getElementById('backToLogin').style.display = 'none';
+        });
+    
+        // Show sign-up form
+        document.getElementById('signUpLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('signUpForm').classList.remove('hidden');
+            document.getElementById('loginTitle').classList.add('hidden');
+            document.getElementById('signUpTitle').classList.remove('hidden');
+            document.getElementById('backToLogin').style.display = 'block';
+        });
+    
+        // Back to login from sign-up
+        document.getElementById('backToLoginLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('signUpForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('loginTitle').classList.remove('hidden');
+            document.getElementById('signUpTitle').classList.add('hidden');
+            document.getElementById('backToLogin').style.display = 'none';
+        });
+    </script>
+    </body>
+</html>
