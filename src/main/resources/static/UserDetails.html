@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+      .profile-card {
+        width: 288px;
+        height: 60px;
+        border-radius: 19px;
+        background: #ffffff;
+        box-shadow: 0px 20px 70px 0px #5659921a;
+        opacity: 1;
+        padding: 6px 11px;
+      }
+
+      .profile-image {
+        width: 49px;
+        height: 49px;
+        /* border-radius: 42px 0px 0px 0px; */
+        overflow: hidden;
+      }
+
+      .profile-image img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+      }
+
+      .profile-info {
+        height: 49px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .profile-name {
+        font-family: "Roboto", sans-serif;
+        font-size: 15px;
+        font-weight: 630;
+        line-height: 11px;
+        color: #2c3e50;
+      }
+
+      .profile-role {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        color: #babec6;
+        margin-top: 5px;
+      }
+      .active-status-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: 31px;
+        color: #087f00;
+        font-size: 12px;
+        /* background: white; */
+        border-radius: 50%;
+        padding: 2px 5px 14px 46px;
+        left: -2px;
+      }
+      .col-auto {
+        height: 56px;
+      }
+      /* Notification Icon Container */
+      .notification-icon {
+        width: 45px;
+        height: 45px;
+        background: #f8f8ff;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      /* Notification Icon Styling */
+      .notification-icon i {
+        font-size: 15px; /* Adjust size as needed */
+        color: #2c3e50;
+      }
+      .notification-count {
+        width: 15px;
+        height: 15px;
+        background: #ee786c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
+      /* Placeholder Styling */
+      .search-input::placeholder {
+        color: #d6caca; /* Placeholder color */
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22.5px;
+        text-align: left;
+      }
+
+      /* custom card */
+      .custom-card-1 {
+        width: 174px;
+        height: 107px;
+        border-radius: 10px 0px 0px 0px;
+        border: 1px solid #f2f2f2;
+        background: #ffffff;
+        background: url(assets/img/Group\ 2450.png) no-repeat center center;
+        background-size: cover;
+        box-shadow: 0px 1px 6px 0px #0000001a;
+        margin: 0 auto;
+        opacity: 1;
+      }
+      .custom-card {
+        width: 174px;
+        height: 107px;
+        border-radius: 10px 0px 0px 0px;
+        border: 1px solid #f2f2f2;
+        background: #ffffff;
+        background: url(assets/img/Group\ 2448.png) no-repeat center center;
+        background-size: cover;
+        box-shadow: 0px 1px 6px 0px #0000001a;
+        margin: 0 auto;
+        opacity: 1;
+      }
+
+      .total-users {
+        width: 140px;
+        /* height: 61px; */
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 60px;
+        letter-spacing: 0.02em;
+        text-align: right;
+        color: #babec6;
+      }
+      /* New User Count Text */
+      .user-count {
+        width: 38px;
+        height: 48px;
+        font-family: "Lato", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 25.2px;
+        letter-spacing: 0.02em;
+        text-align: right;
+        color: #0c7b8a;
+        position: absolute;
+        bottom: 5px;
+        right: 24px;
+      }
+      /* New Plus/Minus Percentage Text */
+
+      .percentage-change {
+        width: 69px;
+        height: 12px;
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16.8px;
+        letter-spacing: 0.02em;
+        text-align: right;
+        color: #1cd1a1;
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+      }
+      .percentage-loss {
+        width: 69px;
+        height: 12px;
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16.8px;
+        letter-spacing: 0.02em;
+        text-align: right;
+        color: #ad2929;
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+      }
+
+      /* Person Icon */
+      .person-icon {
+        font-size: 25px;
+        color: #20a1bd;
+        position: absolute;
+        bottom: 33px;
+        right: 117px;
+        opacity: 1;
+      }
+
+      .bg-image {
+        background-image: url("assets/img/Group 2467.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        padding: 10px;
+        height: 100%;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: black;
+        text-align: right;
+      }
+
+      /* Center and style the profit amount and percentage */
+      .profit-amount {
+        font-family: "Lato", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+
+        letter-spacing: 0.02em;
+        text-align: right;
+        color: #0c7b8a;
+
+        /* Set profit amount text to black */
+      }
+
+      .profit-percentage {
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+
+        color: #1cd1a1;
+        /* Positive percentage color */
+      }
+
+      /* Right-align the "Total Profit" text */
+
+      .profit-section {
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        /* line-height: 60px; */
+        letter-spacing: 0.02em;
+        color: #babec6;
+      }
+
+      /* Default sidebar width */
+      .sidebar {
+        width: 222px;
+        transition: width 0.3s ease;
+      }
+
+      /* Collapsed sidebar width */
+      .toggle-sidebar .sidebar {
+        width: 75px;
+      }
+
+      /* Hide span elements inside the sidebar when collapsed */
+      .toggle-sidebar .sidebar-nav .nav-link span {
+        display: none;
+      }
+
+      /* Ensure icons remain visible */
+      .sidebar-nav .nav-link i {
+        font-size: 1rem;
+        margin-right: 10px;
+      }
+
+      /* Transition for smooth width adjustment */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 996;
+        padding: 23px 15px 20px;
+        overflow-y: auto;
+        background-color: #20a1bd;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        transition: all 0.3s ease;
+      }
+      .graph-col {
+        border: 1px solid;
+        padding: 14px;
+        margin: 7px;
+        border-radius: 10px;
+        border-color: #ddddebbf;
+      }
+      .tableHead {
+        font-family: "Poppins";
+        text-align: left;
+        padding-left: 10px;
+      }
+
+      /* Adjust content alignment when sidebar is collapsed */
+      .toggle-sidebar .dashboard-title {
+        margin-left: 80px; /* Adjust according to your layout */
+      }
+    </style>
+    <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ========================================aaaaaa================ -->
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-start">
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <span
+          class="dashboard-title"
+          style="margin-left: 10px; font-size: 20px; font-weight: 550"
+          >User Details</span
+        >
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." class="search-input" />
+        <i class="bi bi-search search-icon"></i>
+      </div>
+      <div class="container-fluid">
+        <div class="row justify-content-end">
+          <div class="col-auto">
+            <div class="card profile-card">
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto" style="height: 56px">
+                  <div class="profile-image">
+                    <img
+                      src="assets/img/DefaultIcon.png"
+                      alt="Profile Image"
+                      class="img-fluid"
+                    />
+                    <i class="bi bi-circle-fill active-status-icon"></i>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="profile-info">
+                    <div class="profile-name">Abhishek Singh</div>
+                    <div class="profile-role">Admin</div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <div class="notification-icon">
+                    <i class="bi bi-bell"></i>
+                    <div class="notification-count">2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+      <img
+        id="sidebar-logo"
+        src="assets/img/CompanyLogo.svg"
+        alt="Company Logo"
+        class="sidebar-logo"
+      />
+      <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="index.html">
+            <i class="bi bi-grid"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="UserDetails.html">
+            <i class="bi bi-person-fill"></i>
+            <span>User Details</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-house-fill"></i>
+            <span>Lobby</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-credit-card-2-back-fill"></i>
+            <span>Payment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-coin"></i>
+            <span>Referral & Earn</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-cash"></i>
+            <span>Commission</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-bank2"></i>
+            <span>Bank Details</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-controller"></i>
+            <span>Game Management</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-display-fill"></i>
+            <span>System Monitoring</span>
+          </a>
+        </li>
+        <li class="nav-item" style="position: absolute; bottom: 5%">
+          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+        <!-- End Profile Page Nav -->
+      </ul>
+    </aside>
+    <!-- End Sidebar-->
+
+    <main id="main" class="main">
+      <!-- Modal Structure (Placed towards the bottom of the file) -->
+      <div
+        class="modal fade"
+        id="notificationModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="notificationModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="notificationModalTitle">
+                All Notifications
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Notification items go here -->
+              <div class="notification-item">
+                <i class="bi bi-exclamation-circle text-warning"></i>
+                <div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>30 min. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="notification-item">
+                <i class="bi bi-x-circle text-danger"></i>
+                <div>
+                  <h4>Atque rerum nesciunt</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>1 hr. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="notification-item">
+                <i class="bi bi-check-circle text-success"></i>
+                <div>
+                  <h4>Sit rerum fuga</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>2 hrs. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="notification-item">
+                <i class="bi bi-info-circle text-primary"></i>
+                <div>
+                  <h4>Dicta reprehenderit</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>4 hrs. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section dashboard">
+        <div class="row justify-content-start">
+          <div class="container">
+            <div class="row" style="height: 100vh; width: 100%;">
+              <div class="col graph-col" style="">
+                
+                <div class="row tableHead" style="font-size: 11px;color: #78788c;align-items: center;">
+                  <div class="col me-2" style="padding: 0px;">
+                      <div class="row tableHead" style="font-size: 16px; font-weight: 400; line-height: 20.6px; ">
+                  User Details
+                </div><div class="d-inline flex justify-content-end">
+                          <span>Home</span>
+                          <span class="mx-2">&gt;</span>
+                          <span style="color: #ff914d;">User Management</span>
+                      </div>
+                  </div>
+                  <div class="col-auto ms-auto" style="padding: 0px; text-align: right;">
+                      <div class="row">
+                        <div class="col" style="white-space: nowrap; padding: 0;">
+                      <button class="btn btn-primary" style="border-radius: 5px 0px 0px 5px;
+                      background: #20A1BD;
+                      border-color: #DDDDEB;">Active User</button>
+                    </div>
+                    <div class="col" style="padding: 0px 16px 0px 0px;;">
+                    <button class="btn btn-primary" style="border-radius: 0px 5px 5px 0px; background:white;color: #2C2C2C; border-color: #DDDDEB;">Block</button>
+                  </div>
+                  </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Idcard</span></strong
+        >. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+        Designed by <a href="https://scriza.in/">Scriza</a>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <!--  <script src="assets/js/main.js"></script>-->
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>
