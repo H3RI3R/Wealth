@@ -21,14 +21,11 @@ public class SpringSecurity {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        // Admin user
         UserDetails adminUser = User.builder()
                 .username("ad")
                 .password(passwordEncoder().encode("ad"))
                 .roles("ADMIN")
                 .build();
-
-        // Normal user
         UserDetails normalUser = User.builder()
                 .username("user")
                 .password(passwordEncoder().encode("user"))

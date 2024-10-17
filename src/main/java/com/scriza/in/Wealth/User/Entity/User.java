@@ -13,15 +13,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private String userId;
 
-    @Column(nullable = false)  // Marked as NOT NULL in the database
+    @Column(nullable = false)  
     private String userName;
 
-    @Column(name = "email", nullable = false)  // Ensure this maps correctly
+    @Column(name = "email", nullable = false) 
     private String email;
 
     private String password;
     private String role;
+    @Column(nullable = true)
+    private String photo; 
 
-    // Getters and Setters
+
 }

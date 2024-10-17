@@ -29,12 +29,12 @@
             <!-- Login Form -->
             <form id="loginForm">
                 <div class="input-group">
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input  id="email" name="email" placeholder="Email" >
                 </div>
                 <div class="input-group">
                     <input type="password" id="password" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-dark login-button">Login</button>
+                <button type="submit" class="btn btn-dark login-button" onclick="login(event)">Login</button>
                 <a href="#" id="forgotPasswordLink">Forgot your password?</a>
                 <p>
                     Need an account? <a href="#" id="signUpLink" class="text-reset">Sign up here</a>
@@ -73,7 +73,8 @@
             </form>
     
             <!-- Sign-Up Form -->
-            <form id="signUpForm" class="hidden">
+            <form id="signUpForm">
+                <h2 class="login-title">Sign Up</h2>
                 <div class="input-group">
                     <input type="text" id="signupName" name="name" placeholder="Your Name" required>
                 </div>
@@ -83,13 +84,14 @@
                 <div class="input-group">
                     <input type="password" id="signupPassword" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-dark login-button">Sign Up</button>
+                <button type="button" class="btn btn-dark login-button" onclick="register()">Sign Up</button>
                 <p>
                     Already have an account? <a href="#" id="backToLoginLink" class="text-reset">Login here</a>
                 </p>
             </form>
         </div>
     </div>
+    <div id="alertBox" class="alert" role="alert" style="display: none;"></div>
     
     <script>
         document.getElementById('forgotPasswordLink').addEventListener('click', function(event) {
@@ -127,6 +129,119 @@
             document.getElementById('signUpTitle').classList.add('hidden');
             document.getElementById('backToLogin').style.display = 'none';
         });
+
+function login(){
+    let userName = document.getElementById("email").value;  // Get the value of the email input
+    let userPassword = document.getElementById("password").value; 
+    alert("Input value: " + userName+" "+userPassword);
+}
+//-------------------------------------Show alert ----------------------------------------
+// Function to show Bootstrap alerts dynamically
+function showAlert(message, type) {
+    const alertBox = document.getElementById('alertBox');
+    alertBox.className = `alert alert-${type}`;  // Sets the appropriate Bootstrap alert class (e.g., alert-success)
+    alertBox.innerHTML = message;
+    alertBox.style.display = 'block';
+    
+    // Hide the alert automatically after 5 seconds
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 5000);
+}
+
+//-------------------------------------request Handling  ----------------------------------------
+
+// Function to handle POST requests with error handling
+async function makePostRequest(url, body) {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Something went wrong');
+        }
+
+        return await response.json();  // Return the JSON response if successful
+    } catch (error) {
+        throw error;  // Re-throw to be handled by the calling function
+    }
+}
+//-------------------------------------Login API----------------------------------------
+// Adjusted login function
+async function login() {
+    let userName = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    // API body
+    const loginData = {
+        userName: userName,  // Change from email to userName for the API
+        password: password
+    };
+
+    try {
+        // Make the login API call
+        const response = await fetch('http://localhost:8080/authenticate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Login failed');
+        }
+
+        // Since the response is a plain text JWT, use .text() instead of .json()
+        const token = await response.text();
+
+        // Store the token in localStorage
+        localStorage.setItem('authToken', token);
+
+        // Redirect to the index.html page after successful login
+        window.location.href = 'index.html';
+
+    } catch (error) {
+        // Show error alert
+        showAlert(error.message, 'danger');
+    }
+}
+//-------------------------------------Register API----------------------------------------
+async function register() {
+    let userName = document.getElementById("signupName").value;
+    let email = document.getElementById("signupEmail").value;
+    let password = document.getElementById("signupPassword").value;
+
+    // API body
+    const registerData = {
+        userName: userName,
+        email: email,
+        password: password,
+        role: 'USER'
+    };
+
+    try {
+        // Make the registration API call
+        const response = await makePostRequest('http://localhost:8080/register', registerData);
+
+        // Show success message
+        showAlert('User has been registered successfully', 'success');
+
+        // Optionally redirect to login page after registration
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 3000);  // Wait 3 seconds before redirect
+    } catch (error) {
+        // Show error alert
+        showAlert(error.message, 'danger');
+    }
+}
     </script>
     </body>
 </html>

@@ -1,6 +1,5 @@
 package com.scriza.in.Wealth.User.Security;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,13 +20,19 @@ public class SecurityFilterConfig {
         return security.csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/authenticate", "/register").permitAll()  // Permit register and login (authentication)
-                        .requestMatchers("/user/**").hasRole("USER")  // Access to user routes only for users
-                        .requestMatchers("/admin/**").hasRole("ADMIN")  // Access to admin routes only for admin
-                        .anyRequest().authenticated())  // All other requests should be authenticated
-                .exceptionHandling(ex -> ex.authenticationEntryPoint(point))  // Handle unauthorized access
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))  // No session, stateless
-                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)  // Add JWT filter
+                        .requestMatchers("/login.html", "/assets/**", "/css/**", "/js/**", "/images/**").permitAll()  
+                        .requestMatchers("/authenticate", "/register").permitAll()  
+                        .requestMatchers("/user/**").hasRole("USER")  
+                        .requestMatchers("/admin/**").hasRole("ADMIN")  
+                        .anyRequest().authenticated())  
+                
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(point))  
+                
+                // Set session management to stateless (no session)
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))  
+                
+                // Add JWT filter before UsernamePasswordAuthenticationFilter
+                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)  
                 .build();
     }
 }
