@@ -247,18 +247,20 @@
 
 
 .bg-image {
-    background-image: url("assets/img/Group 2467.png");
+    background-image: url("assets/img/Group 2448.png");
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 10px;
-    padding: 10px;
-    height: 100%;
+    padding: 4px 12px;
+    /* height: 100%; */
     background-size: 100% 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     color: black;
     text-align: right;
+    /* margin: 10px 40px; */
+    height: 130px;
+    justify-content: center;
 }
 
         /* Center and style the profit amount and percentage */
@@ -270,7 +272,7 @@
     letter-spacing: 0.02em;
     text-align: right;
     color: #0C7B8A;
-
+    margin: 6px;
 
 /* Set profit amount text to black */
         }
@@ -285,18 +287,22 @@
 
 
     color: #1CD1A1;
+    margin-top: 5px;
 /* Positive percentage color */
         }
 
         /* Right-align the "Total Profit" text */
       
 .profit-section {
-    font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
     font-size: 12px;
     font-weight: 500;
-    /* line-height: 60px; */
+    /* line-height: 5px; */
     letter-spacing: 0.02em;
     color: #BABEC6;
+    /* margin: 7px 1px; */
+    margin-bottom: 10px;
+
 }
 
 
@@ -342,7 +348,7 @@
     z-index: 996;
     padding: 23px 15px 20px;
     overflow-y: auto;
-    background-color: #20a1bd;
+    background-color: black;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     transition: all 0.3s ease;
@@ -376,13 +382,12 @@
         <span
           class="dashboard-title"
           style="margin-left: 10px; font-size: 20px; font-weight: 550"
-          >Dashboard</span
-        >
+          >Dashboard</span>
       </div>
-      <div class="search-bar">
+      <!-- <div class="search-bar">
         <input type="text" placeholder="Search..." class="search-input" />
         <i class="bi bi-search search-icon"></i>
-      </div>
+      </div> -->
       <div class="container-fluid">
         <div class="row justify-content-end">
           <div class="col-auto">
@@ -575,86 +580,261 @@
         </div>
       </div>
 
-      <section class="section dashboard">
+      <section class="section dashboard" style="    margin: 37px 30px 10px 1px;">
         <div class="row justify-content-start">
-          <div class="container my-4">
+          <div class="col-lg-9">
+          <div class="container my-3">
             <div class="row justify-content-center " style="height: 115%;width: 100%;">
                 <!-- Column 1 -->
-                <div class="col bg-image">
-                    <div class="profit-section">
-                        <p>Total Profit</p>
+                 
+                <div class="col  bg-image">
+                  <div class="row">
+                    
+                    <div class="col-4 h-100 mt-30px" style="margin-top: 20px; padding: 0px 4px;">
+                      <i class="bi bi-person-fill" style="font-size: 30px;"> </i>
                     </div>
-                    <div class="profit-amount">₹520</div>
-                    <div class="profit-percentage">+19.23%</div>
+                    <div class="col-8 ">
+                      <div class="profit-section">
+                        <p>Total User active</p>
+                    </div>
+                      <div class="profit-amount">₹520</div>
+                      <div class="profit-percentage">+19.23%</div>
+                  </div>
                 </div>
+              </div>
                 
                 <!-- Column 2 -->
-                <div class="col bg-image">
-                    <div class="profit-section">
-                        <p>Total Profit</p>
+                <div class="col  bg-image">
+                  <div class="row">
+                    
+                    <div class="col-4 h-100 mt-30px" style="margin-top: 20px; padding: 0px 4px;">
+                      <i class="bi bi-person-fill" style="font-size: 30px;"> </i>
                     </div>
-                    <div class="profit-amount">₹520</div>
-                    <div class="profit-percentage">+19.23%</div>
+                    <div class="col-8 ">
+                      <div class="profit-section">
+                        <p>Total Deposit</p>
+                    </div>
+                      <div class="profit-amount">₹520</div>
+                      <div class="profit-percentage">+19.23%</div>
+                  </div>
                 </div>
+              </div>
                 
                 <!-- Column 3 -->
-                <div class="col bg-image">
-                    <div class="profit-section">
-                        <p>Total Profit</p>
+                <div class="col  bg-image">
+                  <div class="row">
+                    
+                    <div class="col-4 h-100 mt-30px" style="margin-top: 20px; padding: 0px 4px;">
+                      <i class="bi bi-person-fill" style="font-size: 30px;"> </i>
                     </div>
-                    <div class="profit-amount">₹520</div>
-                    <div class="profit-percentage">+19.23%</div>
-                </div>
-                 <!-- Column 4 -->
-                 <div class="col bg-image">
-                  <div class="profit-section">
-                      <p>Total Profit</p>
+                    <div class="col-8 ">
+                      <div class="profit-section">
+                        <p>Daily withdrawal</p>
+                    </div>
+                      <div class="profit-amount">₹520</div>
+                      <div class="profit-percentage">+19.23%</div>
                   </div>
-                  <div class="profit-amount">₹520</div>
-                  <div class="profit-percentage">+19.23%</div>
+                </div>
+              </div>
+                 <!-- Column 4 -->
+                 <div class="col  bg-image">
+                  <div class="row">
+                    
+                    <div class="col-4 h-100 mt-30px" style="margin-top: 20px; padding: 0px 4px;">
+                      <i class="bi bi-person-fill" style="font-size: 30px;"> </i>
+                    </div>
+                    <div class="col-8 ">
+                      <div class="profit-section">
+                        <p>Total withdrawal</p>
+                    </div>
+                      <div class="profit-amount">₹520</div>
+                      <div class="profit-percentage">+19.23%</div>
+                  </div>
+                </div>
               </div>
                <!-- Column 5 -->
-               <div class="col bg-image">
-                <div class="profit-section">
-                    <p>Total Profit</p>
-                </div>
-                <div class="profit-amount">₹520</div>
-                <div class="profit-percentage">+19.23%</div>
-            </div>
-             <!-- Column 6 -->
-             <div class="col bg-image">
-              <div class="profit-section">
-                  <p>Total Profit</p>
-              </div>
-              <div class="profit-amount">₹520</div>
-              <div class="profit-percentage">+19.23%</div>
-          </div>
-           <!-- Column 7 -->
-           <div class="col bg-image">
-            <div class="profit-section">
-                <p>Total Profit</p>
-            </div>
-            <div class="profit-amount">₹520</div>
-            <div class="profit-percentage">+19.23%</div>
-        </div>
+               
             </div>
         </div>
-
         <div class="container">
-          <div class="row" style="height: 270px; 
-          width: 100%;
-          ">
-            <div class="col graph-col" >
-              One of three columns
+          <div class="row">
+            <!-- First Column with Line Chart -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">User Count</h5>
+        
+                  <!-- Line Chart 1 -->
+                  <div id="lineChart1"></div>
+        
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#lineChart1"), {
+                        series: [{
+                          name: "Desktops",
+                          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'line',
+                          zoom: {
+                            enabled: false
+                          }
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          curve: 'straight'
+                        },
+                        grid: {
+                          row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                          },
+                        },
+                        xaxis: {
+                          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                        }
+                      }).render();
+                    });
+                  </script>
+                  <!-- End Line Chart 1 -->
+                </div>
+              </div>
             </div>
-            <div class="col graph-col" >
-              One of three columns
+        
+            <!-- Second Column with Line Chart -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Line Chart 2</h5>
+        
+                  <!-- Line Chart 2 -->
+                  <div id="lineChart2"></div>
+        
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#lineChart2"), {
+                        series: [{
+                          name: "Desktops",
+                          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'line',
+                          zoom: {
+                            enabled: false
+                          }
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          curve: 'straight'
+                        },
+                        grid: {
+                          row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                          },
+                        },
+                        xaxis: {
+                          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                        }
+                      }).render();
+                    });
+                  </script>
+                  <!-- End Line Chart 2 -->
+                </div>
+              </div>
             </div>
-            <div class="col graph-col" >
-              One of three columns
-            </div>
+        
+           
           </div>
         </div>
+        
+      </div>
+
+      <div class="col-lg-3">
+
+        <!-- Recent Activity -->
+        <div class="card" style="    box-shadow: 0px 0 6px rgba(1, 41, 112, 0.1);">
+          <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start">
+                <h6>Filter</h6>
+              </li>
+
+              <li><a class="dropdown-item" href="#">Today</a></li>
+              <li><a class="dropdown-item" href="#">This Month</a></li>
+              <li><a class="dropdown-item" href="#">This Year</a></li>
+            </ul>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+
+            <div class="activity">
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">32 min</div>
+                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                <div class="activity-content">
+                  Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">56 min</div>
+                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                <div class="activity-content">
+                  Voluptatem blanditiis blanditiis eveniet
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">2 hrs</div>
+                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                <div class="activity-content">
+                  Voluptates corrupti molestias voluptatem
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">1 day</div>
+                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                <div class="activity-content">
+                  Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">2 days</div>
+                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                <div class="activity-content">
+                  Est sit eum reiciendis exercitationem
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">4 weeks</div>
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                <div class="activity-content">
+                  Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                </div>
+              </div><!-- End activity item-->
+
+            </div>
+
+          </div>
+        </div><!-- End Recent Activity -->
+
+        <!-- Budget Report -->
+      </div>
+        </div>
+       
     </section>
     </main>
     <!-- End #main -->

@@ -475,12 +475,12 @@
     position: static;
     transition: all 0.5s;
     z-index: 997;
-    height: 60px;
-    /* box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1); */
+    height: 100%;
+    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     background-color: #fff;
     padding: 10px 10px 10px 307px;
-    margin-top: 16px;
-    /* margin: auto; */
+    /* margin-top: 3px; */
+    /* margin: auto;
 }
 .navbar-open .toggle-sidebar-btn {
     left: 250; /* Correct position when navbar is open */
@@ -795,7 +795,7 @@
     scrollbar-width: thin;
     scrollbar-color: #aab7cf transparent;
     box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-    background-color: #20a1bd;
+    background-color: black;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
   }
@@ -878,7 +878,7 @@
     /* background: #f6f9ff; */
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: #5CBCD180;
+    background-color: darkslategrey;
     }
   
   .sidebar-nav .nav-link i {
@@ -889,7 +889,7 @@
   
   .sidebar-nav .nav-link.collapsed {
     color: #ffffff;
-    background: #20A1BD;
+    background: black;
     /* background: #fff; */
     }
   
