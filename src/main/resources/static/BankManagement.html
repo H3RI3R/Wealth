@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+      .profile-card {
+        width: 288px;
+        height: 60px;
+        border-radius: 19px;
+        background: #ffffff;
+        box-shadow: 0px 20px 70px 0px #5659921a;
+        opacity: 1;
+        padding: 6px 11px;
+      }
+
+      .profile-image {
+        width: 49px;
+        height: 49px;
+        /* border-radius: 42px 0px 0px 0px; */
+        overflow: hidden;
+      }
+
+      .profile-image img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+      }
+
+      .profile-info {
+        height: 49px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .profile-name {
+        font-family: "Roboto", sans-serif;
+        font-size: 15px;
+        font-weight: 630;
+        line-height: 11px;
+        color: #2c3e50;
+      }
+
+      .profile-role {
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        color: #babec6;
+        margin-top: 5px;
+      }
+      .active-status-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: 31px;
+        color: #087f00;
+        font-size: 12px;
+        /* background: white; */
+        border-radius: 50%;
+        padding: 2px 5px 14px 46px;
+        left: -2px;
+      }
+      .col-auto {
+        height: 56px;
+      }
+      /* Notification Icon Container */
+      .notification-icon {
+        width: 45px;
+        height: 45px;
+        background: #f8f8ff;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      /* Notification Icon Styling */
+      .notification-icon i {
+        font-size: 15px; /* Adjust size as needed */
+        color: #2c3e50;
+      }
+      .notification-count {
+        width: 15px;
+        height: 15px;
+        background: #ee786c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: center;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
+      /* Placeholder Styling */
+      .search-input::placeholder {
+        color: #d6caca; /* Placeholder color */
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22.5px;
+        text-align: left;
+      }
+
+
+
+
+
+
+      /* custom card */
+      .custom-card-1 {
+    width: 174px;
+    height: 107px;
+    border-radius: 10px 0px 0px 0px;
+    border: 1px solid #F2F2F2;
+    background: #FFFFFF;
+    background: url(assets/img/Group\ 2450.png) no-repeat center center;
+    background-size: cover;
+    box-shadow: 0px 1px 6px 0px #0000001A;
+    margin: 0 auto;
+    opacity: 1;
+}
+.custom-card {
+    width: 174px;
+    height: 107px;
+    border-radius: 10px 0px 0px 0px;
+    border: 1px solid #F2F2F2;
+    background: #FFFFFF;
+    background: url(assets/img/Group\ 2448.png) no-repeat center center;
+    background-size: cover;
+    box-shadow: 0px 1px 6px 0px #0000001A;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+.total-users {
+    width: 140px;
+    /* height: 61px; */
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: #BABEC6;
+}
+/* New User Count Text */
+.user-count {
+    width: 38px;
+    height: 48px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.2px;
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: #0C7B8A;
+    position: absolute;
+    bottom: 5px;
+    right: 24px;
+}
+/* New Plus/Minus Percentage Text */
+
+.percentage-change {
+    width: 69px;
+    height: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16.8px;
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: #1CD1A1;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+.percentage-loss {
+    width: 69px;
+    height: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16.8px;
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: #ad2929;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+/* Person Icon */
+.person-icon {
+    font-size: 25px;
+    color: #20A1BD;
+    position: absolute;
+    bottom: 33px;
+    right: 117px;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+.bg-image {
+    background-image: url("assets/img/Group 2448.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 4px 12px;
+    /* height: 100%; */
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    text-align: right;
+    /* margin: 10px 40px; */
+    height: 130px;
+    justify-content: center;
+}
+
+        /* Center and style the profit amount and percentage */
+        .profit-amount {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    letter-spacing: 0.02em;
+    text-align: right;
+    color: #0C7B8A;
+    margin: 6px;
+
+/* Set profit amount text to black */
+        }
+
+        .profit-percentage {
+
+
+
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+
+
+    color: #1CD1A1;
+    margin-top: 5px;
+/* Positive percentage color */
+        }
+
+        /* Right-align the "Total Profit" text */
+      
+.profit-section {
+  font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    /* line-height: 5px; */
+    letter-spacing: 0.02em;
+    color: #BABEC6;
+    /* margin: 7px 1px; */
+    margin-bottom: 10px;
+
+}
+
+.p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Adjust content alignment when sidebar is collapsed */
+.toggle-sidebar .dashboard-title {
+    margin-left: 80px; /* Adjust according to your layout */
+}
+    </style>
+    <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ========================================aaaaaa================ -->
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-start">
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <span
+          class="dashboard-title"
+          style="margin-left: 10px; font-size: 20px; font-weight: 550"
+          >Dashboard</span>
+      </div>
+      <!-- <div class="search-bar">
+        <input type="text" placeholder="Search..." class="search-input" />
+        <i class="bi bi-search search-icon"></i>
+      </div> -->
+      <div class="container-fluid">
+        <div class="row justify-content-end">
+          <div class="col-auto">
+            <div class="card profile-card" >
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto" style="height: 56px">
+                  <div class="profile-image">
+                    <img
+                      src="assets/img/DefaultIcon.png"
+                      alt="Profile Image"
+                      class="img-fluid"
+                    />
+                    <i class="bi bi-circle-fill active-status-icon"></i>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="profile-info">
+                    <div class="profile-name">Abhishek Singh</div>
+                    <div class="profile-role">Admin</div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <div class="notification-icon">
+                    <i class="bi bi-bell"></i>
+                    <div class="notification-count">2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+      <img
+      id="sidebar-logo" 
+      src="assets/img/CompanyLogo.svg"
+      alt="Company Logo"
+      class="sidebar-logo"
+  />
+      <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="index.html">
+            <i class="bi bi-grid"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="UserDetails.html">
+            <i class="bi bi-person-fill"></i>
+            <span>User Details</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="Withdrawal.html">
+            <i class="bi bi-house-fill"></i>
+            <span>Withdrawal Request</span>
+          </a>
+        </li>
+        <li class="nav-item"></li>
+          <a class="nav-link collapsed " href="Plans.html">
+            <i class="bi bi-plus-circle-fill"></i>
+            <span>Plan Management</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="BankManagement.html">
+            <i class="bi bi-bank2"></i>
+            <span>Bank Management</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="Referral.html">
+            <i class="bi bi-coin"></i>
+            <span>Referral & Earn</span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="AboutUs.html">
+            <i class="bi bi-display-fill"></i>
+            <span>About us </span>
+          </a>
+        </li>
+        <li class="nav-item" style="
+        position: absolute;
+        bottom: 5%;
+    ">
+          <a class="nav-link collapsed" href="Login.html">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+        <!-- End Profile Page Nav -->
+      </ul>
+    </aside>
+    <!-- End Sidebar-->
+
+    <main id="main" class="main">
+      <!-- Modal Structure (Placed towards the bottom of the file) -->
+      <div
+        class="modal fade"
+        id="notificationModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="notificationModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="notificationModalTitle">
+                All Notifications
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Notification items go here -->
+              <div class="notification-item">
+                <i class="bi bi-exclamation-circle text-warning"></i>
+                <div>
+                  <h4>Lorem Ipsum</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>30 min. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="notification-item">
+                <i class="bi bi-x-circle text-danger"></i>
+                <div>
+                  <h4>Atque rerum nesciunt</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>1 hr. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="notification-item">
+                <i class="bi bi-check-circle text-success"></i>
+                <div>
+                  <h4>Sit rerum fuga</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>2 hrs. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="notification-item">
+                <i class="bi bi-info-circle text-primary"></i>
+                <div>
+                  <h4>Dicta reprehenderit</h4>
+                  <p>Quae dolorem earum veritatis oditseno</p>
+                  <p>4 hrs. ago</p>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
+
+
+    
+      <section class="section dashboard">
+        <div class="page-content-wrapper " style="height: auto !important; min-height: 0px !important;">
+          <div class="row">
+            <div class="pagetitle">
+              <h1>
+                <i class="bi bi-bank"> Add Money</i>
+              </h1>
+              <nav>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="Adindex.html">Home</a></li>
+                  <li class="breadcrumb-item active">Payment portal</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <ul class="nav nav-tabs nav-bottom-line mb-3 d-flex justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#tab-payment-gateway">
+                Create token
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-qr-payment">
+                Banks
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-tokenRate">
+                Token Rate
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-Status">
+                Status
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content mt-3" style="height: auto !important;">
+            <div class="tab-pane show active" id="tab-payment-gateway" style="height: auto !important;">
+              <div class="row g-4">
+                <!-- Left Column: Token Card -->
+                <div class="col-md-4 col-sm-6 col-lg-4 float-start">
+                  <div class="card info-card revenue-card">
+                    <div class="card-body">
+                      <h5 class="card-title">Token</h5>
+                      <div class="d-flex align-items-center">
+                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                          <i class="bi bi-currency-dollar"></i>
+                        </div>
+                        <div class="ps-3">
+                          <h6 id="tokenCount">0</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- End Token Card -->
+                </div>
+  
+  
+  
+                <div class="col-md-6 col-sm-12 col-lg-6 mx-auto">
+                <div class="card">
+                    <div class="border-bottom card-header">
+                      <div class="mb-0 card-title h5">
+                        Create</div>
+                      <p class="mb-0 small">
+                        Create tokens from here
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="inputAmount" class="col-sm-2 col-form-label">Amount</label>
+                          <div class="col-sm-10">
+                            <input type="number" class="form-control" id="inputAmount" placeholder="Enter Token Amount" required>
+                          </div>
+                        </div>
+                        <div class="d-grid mt-4">
+                          <!-- Button Triggering Token Creation -->
+                          <button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" id="createTokenButton">
+                            <span class="fs-5 me-2">✨ Create Tokens</span>
+                          </button>
+                        </div>
+  
+                        <!-- Alert Message (Optional for displaying raw message) -->
+                        <div id="tokenCreationMessage" class="mt-3"></div>
+                      </form>
+  
+                      <!-- Payment Modal -->
+                      <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-body text-center">
+                              <!-- Modal Header Text -->
+                              <p class="text-muted small mb-4">Open your UPI app and scan the QR code below to PAY the amount:</p>
+  
+                              <!-- QR Code Container -->
+                              <div class="d-flex justify-content-center mb-4">
+                                <div id="qrcode"></div>
+                              </div>
+  
+                              <!-- Scan QR Text -->
+                              <p class="text-muted small mb-4">Scan QR</p>
+  
+                              <!-- Transaction Code Input -->
+                              <p class="text-muted small mb-2">If payment is done, enter the transaction code below:</p>
+                              <input type="text" id="transactionID" class="form-control mb-3" placeholder="Transaction ID">
+  
+                              <!-- Done Button -->
+                              <button type="button" class="btn btn-dark" id="doneButton">Done</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Bootstrap Alert (Initially Hidden) -->
+                      <div id="paymentAlert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+                        <span id="alertMessage"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-4 mt-4" style="height: auto !important;">
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-qr-payment">
+              <div class="row g-4">
+                <div class="col-md-8 mx-auto">
+                  <div class="card">
+                    <div class="border-bottom card-header">
+                      <div class="mb-0 card-title h5">Modify Accounts</div>
+                      <p class="mb-0 small">Add or Remove Bank Accounts.</p>
+                    </div>
+                    <div class="card-body">
+                      <!-- Bank Details Section -->
+                      <!-- Bootstrap Alert -->
+                      <div id="alertContainer" class="alert d-none" role="alert"></div>
+                      <!-- Show Active Button -->
+                      <div class="d-grid mt-2">
+                        <button type="button" id="toggleActiveFilter" class="btn btn-dark btn-sm" onclick="filterActiveAccounts()">
+                          <span class="fs-6 me-2" id="buttonText">Show Active <i class="bi bi-arrow-down"></i></span>
+                        </button>
+                      </div>
+                      <div class="container mt-4">
+                        <h6 class="text-muted"><i class="bi bi-bank"></i> Account Details (Active)</h6>
+  
+                        <div style="max-height: 300px; overflow-y: auto;"> <!-- Scrollable container -->
+                          <table class="table table-striped">
+                            <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Account Type</th>
+                              <th scope="col">Identifier</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="accountTableBody">
+                            <!-- Table rows will be injected here -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+  
+                      <!-- Action Buttons -->
+                      <div class="d-grid mt-4">
+                        <button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#addBankModal">
+                          <span class="fs-5 me-2">✨ Add Bank</span>
+                          <img src="assets/img/bank.png" style="height: 20px; width: auto;" alt="Bank">
+                        </button>
+                        <button type="button" class="btn btn-danger d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#addUpiModal">
+                          <span class="fs-5 me-2">✨ Add UPI Account</span>
+                          <img src="assets/img/upi.svg" style="height: 20px; width: auto;" alt="Upi">
+                        </button>
+                        <!--                    <button type="button" class="btn btn-warning d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">-->
+                        <!--                      <span class="fs-5 me-2">✨ Delete Accounts</span>-->
+                        <!--                      <img src="assets/img/upi.svg" style="height: 20px; width: auto;" alt="UPI">-->
+                        <!--                      <img src="assets/img/bank.png" style="height: 20px; width: auto;" alt="Bank">-->
+                        <!--                    </button>-->
+                      </div>
+                      <!-- Activate Confirmation Modal -->
+                      <div class="modal fade" id="activateAccountModal" tabindex="-1" aria-labelledby="activateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="activateModalLabel">Confirm Activation</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to activate this account?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-primary" onclick="activateAccount()">Activate</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Deactivate Confirmation Modal -->
+                      <div class="modal fade" id="deactivateModal" tabindex="-1" aria-labelledby="deactivateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deactivateModalLabel">Confirm Deactivation</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to deactivate this account?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-danger" onclick="deactivateAccount()">Deactivate</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Add Bank Modal -->
+                      <!-- Add Bank Modal -->
+                      <div class="modal fade" id="addBankModal" tabindex="-1" aria-labelledby="addBankModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="addBankModalLabel">Add Bank Account</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form id="addBankForm">
+                                <div class="row">
+                                  <!-- Bank Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="bankName" class="form-label">Bank Name</label>
+                                    <input type="text" class="form-control" id="bankName" required>
+                                  </div>
+  
+                                  <!-- Account Number -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="accountNumber" class="form-label">Account Number</label>
+                                    <input type="text" class="form-control" id="accountNumber" required>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <!-- Re-enter Account Number -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="reAccountNumber" class="form-label">Re-enter Account Number</label>
+                                    <input type="text" class="form-control" id="reAccountNumber" required>
+                                  </div>
+  
+                                  <!-- Account Owner Full Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="accountOwner" class="form-label">Account Owner Full Name</label>
+                                    <input type="text" class="form-control" id="accountOwner" required>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <!-- Father's Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="fathersName" class="form-label">Father's Name</label>
+                                    <input type="text" class="form-control" id="fathersName" required>
+                                  </div>
+  
+                                  <!-- Mother's Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="mothersName" class="form-label">Mother's Name</label>
+                                    <input type="text" class="form-control" id="mothersName" required>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <!-- Address -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="address" required>
+                                  </div>
+  
+                                  <!-- IFSC Code -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="ifscCode" class="form-label">IFSC Code</label>
+                                    <input type="text" class="form-control" id="ifscCode" required>
+                                  </div>
+                                </div>
+                                <!-- Use type="button" instead of "submit" -->
+                                <button type="button" id="addBankBtn" class="btn btn-dark">Add Account</button>
+  
+                                <!-- Small Text -->
+                                <p class="text-center text-muted small mt-3">We support all payment methods.</p>
+  
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Success Modal -->
+                      <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-body text-center">
+                              <img src="assets/img/success.png" alt="Success" style="width: 100px; margin-bottom: 20px;">
+                              <h4>Account has been saved successfully!</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Error Modal -->
+                      <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-body text-center">
+                              <h4 class="text-danger">Error</h4>
+                              <p id="errorModalBody"></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Add UPI Modal -->
+                      <div class="modal fade" id="addUpiModal" tabindex="-1" aria-labelledby="addUpiModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="addUpiModalLabel">Add UPI Account</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+  
+                            <!-- Modal Body -->
+                            <div class="modal-body">
+                              <p class="text-muted">Please enter your UPI account details</p>
+                              <form id="addUpiForm" enctype="multipart/form-data">
+                                <div class="row">
+                                  <!-- UPI ID -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="upiId" class="form-label">Enter UPI ID</label>
+                                    <input type="text" class="form-control" id="upiId" required>
+                                  </div>
+  
+                                  <!-- Account Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="upiAccountName" class="form-label">Account Name</label>
+                                    <input type="text" class="form-control" id="upiAccountName" required>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <!-- Father's Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="upiFathersName" class="form-label">Father's Name</label>
+                                    <input type="text" class="form-control" id="upiFathersName" required>
+                                  </div>
+  
+                                  <!-- Mother's Name -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="upiMothersName" class="form-label">Mother's Name</label>
+                                    <input type="text" class="form-control" id="upiMothersName" required>
+                                  </div>
+                                </div>
+  
+                                <div class="row">
+                                  <!-- Address -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="upiAddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="upiAddress" required>
+                                  </div>
+  
+                                  <!-- QR Code Upload -->
+                                  <div class="col-md-6 mb-3">
+                                    <label for="upiQrCode" class="form-label">Upload QR Code(Optional)</label>
+                                    <input type="file" class="form-control" id="upiQrCode" accept="image/*">
+                                  </div>
+                                </div>
+  
+                                <!-- Add UPI Account Button -->
+                                <div class="d-grid">
+                                  <button type="submit" class="btn btn-dark">Add UPI Account</button>
+                                </div>
+  
+                                <p class="text-center text-muted small mt-3">We support all payment methods.</p>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Alerts  Modal -->
+                      <div id="alertPlaceholder"></div>
+                      <!-- Delete Account Modal -->
+                      <!-- Delete Confirmation Modal -->
+                      <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteConfirmationLabel">Confirm Delete</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete <span id="accountToDelete"></span>?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-primary" id="confirmDeleteButton">Delete</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Edit Account Modal -->
+                      <div class="modal fade" id="editAccountModal" tabindex="-1" aria-labelledby="editAccountModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="editAccountModalLabel">Edit Account</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+  
+                            <!-- Modal Body -->
+                            <div class="modal-body">
+                              <form id="editAccountForm">
+                                <div class="mb-3">
+                                  <label for="editIdentifier" class="form-label">Identifier</label>
+                                  <input type="text" class="form-control" id="editIdentifier" required>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="editName" class="form-label">Name</label>
+                                  <input type="text" class="form-control" id="editName" required>
+                                </div>
+                              </form>
+                            </div>
+  
+                            <!-- Modal Footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+  
+  <!--        //  &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Rate Table &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+  
+            <div class="tab-pane" id="tab-tokenRate">
+              <div class="row g-4">
+                <div class="col-md-10 mx-auto">
+                  <div class="border shadow card">
+                    <div class="border-bottom card-header">
+                      <div class="mb-0 card-title h5">Token Rate Table</div>
+                      <p class="mb-0 small">Set and manage token rates for distributors</p>
+                    </div>
+                    <div class="card-body">
+                      <table class="table table-bordered text-center" id="rateTable">
+                        <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Minimum Range</th>
+                          <th>Maximum Range</th>
+                          <th>Rate</th>
+                          <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody id="rateTableBody">
+                        <!-- Rows will be dynamically populated here -->
+                        </tbody>
+                      </table>
+                      <button class="btn btn-sm btn-primary" onclick="addNewRow()">Add Row</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+  
+            <!----------------------------------Status table ------------------------->
+            <div class="tab-pane" id="tab-Status">
+              <div class="row g-4">
+                <div class="col-md-10 mx-auto">
+                  <div class="border shadow card">
+                    <div class="border-bottom card-header">
+                      <h5 class="card-header-title">
+                        Status
+                      </h5>
+                      <p class="mb-0 small">Status table</p>
+                    </div>
+                    <div class="card-body">
+                      <!-- Search and Refresh Controls -->
+                      <div class="d-flex justify-content-between mb-3">
+                        <input type="text" id="searchTransactionId" class="form-control" placeholder="Search by Transaction ID">
+                        <button id="refreshButton" class="btn btn-primary">Refresh</button>
+                      </div>
+                      <!-- Table -->
+                      <table class="table table-sm">
+                        <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Date</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Transaction ID</th>
+                          <th>Type</th> <!-- New Type Column -->
+                        </tr>
+                        </thead>
+                        <tbody id="transactionTableBody">
+                        <!-- Table rows will be inserted here -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+  
+  
+      </section>
+
+
+
+      
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Idcard</span></strong
+        >. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+        Designed by <a href="https://scriza.in/">Scriza</a>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+     <!-- Latest Font Awesome CDN -->
+
+
+<!-- Font Awesome only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
+
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <!--  <script src="assets/js/main.js"></script>-->
+    <script src="assets/js/index.js"></script>
+    <script src="BankManagement.js"></script>
+  </body>
+</html>
