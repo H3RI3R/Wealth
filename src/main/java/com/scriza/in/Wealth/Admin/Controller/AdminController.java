@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class AdminController {
     @GetMapping("/try")
     @PreAuthorize("hasRole('ADMIN')") // Specify that only users with 'ADMIN' role can access this method

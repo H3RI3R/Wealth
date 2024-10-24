@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet Section</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+    }
+
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar-brand:hover {
+      color: white;
+    }
+
+    .dashboard-title {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #343a40;
+    }
+
+    .card {
+      border-radius: 15px;
+      margin: 10px 0;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .form-section {
+      margin-top: 20px;
+      padding: 15px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .bottom-nav .nav-icon {
+      font-size: 24px;
+    }
+
+    .bottom-nav .nav-text {
+      font-size: 12px;
+    }
+
+    .saved-bank-card, .saved-upi-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+    }
+
+    .saved-bank-details, .saved-upi-details {
+      text-align: left;
+    }
+
+    .saved-bank-actions, .saved-upi-actions {
+      text-align: right;
+    }
+
+    .edit-delete-btn {
+      margin-left: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar d-flex justify-content-between align-items-center">
+    <span class="navbar-brand">Wallet</span>
+    <img src="https://via.placeholder.com/35" alt="Profile" class="profile-img">
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container-fluid mt-4">
+
+    <!-- Wallet Overview Section -->
+    <div class="dashboard-title">
+      <h2>My Wallet</h2>
+    </div>
+
+    <div class="card p-3">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Total Balance</h5>
+        <p class="card-text" style="font-size: 18px;">15,000</p>
+        <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Withdrawable Balance</h5>
+        <p class="card-text" style="font-size: 18px; color: #28a745;">2,000</p>
+        <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Locked Balance</h5>
+        <p class="card-text" style="font-size: 18px; color: #dc3545;">1,000 (Unlocks on 1st Nov 2024)</p>
+      </div>
+    </div>
+
+    <!-- Saved Bank Accounts Section -->
+    <div class="section-title">Saved Bank Accounts</div>
+    <div class="card p-3">
+      <div class="saved-bank-card">
+        <div class="saved-bank-details">
+          <h6>Bank of America - **** 1234</h6>
+          <p>Account Holder: abu pabbu
+          </p>
+        </div>
+        <div class="saved-bank-actions">
+          <button class="btn btn-sm btn-primary edit-delete-btn">Edit</button>
+          <button class="btn btn-sm btn-danger edit-delete-btn">Delete</button>
+        </div>
+      </div>
+      <button class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#addBankModal">Add Bank Account</button>
+    </div>
+
+    <!-- Saved UPI Accounts Section -->
+    <div class="section-title">Saved UPI Accounts</div>
+    <div class="card p-3">
+      <div class="saved-upi-card">
+        <div class="saved-upi-details">
+          <h6>UPI ID: dabbu@upi </h6>
+        </div>
+        <div class="saved-upi-actions">
+          <button class="btn btn-sm btn-primary edit-delete-btn">Edit</button>
+          <button class="btn btn-sm btn-danger edit-delete-btn">Delete</button>
+        </div>
+      </div>
+      <button class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#addUpiModal">Add UPI Account</button>
+    </div>
+
+    <!-- Plan Purchase Section -->
+    <div class="section-title">Purchase New Plan</div>
+    <div class="card p-3">
+      <div class="card-body">
+        <p>Select an investment plan to purchase:</p>
+        <!-- Plans -->
+        <div class="list-group">
+          <button type="button" class="list-group-item list-group-item-action">Basic Plan - 500</button>
+          <button type="button" class="list-group-item list-group-item-action">Standard Plan - 1000</button>
+          <button type="button" class="list-group-item list-group-item-action">Premium Plan - 5000</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="Dashboard.html">
+      <div class="nav-icon">🏠</div>
+      <div class="nav-text">Home</div>
+    </a>
+    <a href="Wallet.html">
+      <div class="nav-icon">💼</div>
+      <div class="nav-text">Wallet</div>
+    </a>
+    <a href="History.html" >
+      <div class="nav-icon">📜</div>
+      <div class="nav-text">History</div>
+    </a>
+    <a href="profile.html">
+      <div class="nav-icon">👤</div>
+      <div class="nav-text">Profile</div>
+    </a>
+  </nav>
+
+  <!-- Add Bank Account Modal -->
+  <div class="modal fade" id="addBankModal" tabindex="-1" aria-labelledby="addBankModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBankModalLabel">Add Bank Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="bankName" class="form-label">Bank Name</label>
+              <input type="text" class="form-control" id="bankName" placeholder="Enter bank name">
+            </div>
+            <div class="mb-3">
+              <label for="accountNumber" class="form-label">Account Number</label>
+              <input type="text" class="form-control" id="accountNumber" placeholder="Enter account number">
+            </div>
+            <div class="mb-3">
+              <label for="accountHolderName" class="form-label">Account Holder Name</label>
+              <input type="text" class="form-control" id="accountHolderName" placeholder="Enter account holder name">
+            </div>
+            <div class="mb-3">
+              <label for="ifscCode" class="form-label">IFSC Code</label>
+              <input type="text" class="form-control" id="ifscCode" placeholder="Enter IFSC code">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save Bank Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add UPI Account Modal -->
+  <div class="modal fade" id="addUpiModal" tabindex="-1" aria-labelledby="addUpiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addUpiModalLabel">Add UPI Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="upiId" class="form-label">UPI ID</label>
+              <input type="text" class="form-control" id="upiId" placeholder="Enter UPI ID">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save UPI Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

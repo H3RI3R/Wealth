@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment History</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      padding-top: 60px; /* Adjust for fixed header height */
+      padding-bottom: 60px; /* Adjust for fixed footer height */
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* Fixed Navbar */
+    .navbar {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      position: fixed; /* Fixed positioning */
+      top: 0; /* At the top */
+      left: 0; /* Align to the left */
+      right: 0; /* Align to the right */
+      z-index: 1000; /* Ensure it sits above other elements */
+    }
+
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar-brand:hover {
+      color: white;
+    }
+
+    .header-title {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #343a40;
+    }
+
+    .filter-options {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap; /* Wrap buttons if they overflow */
+    }
+
+    .filter-btn {
+      background-color: #007bff;
+      color: white;
+      border-radius: 30px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 11px;
+      margin: 5px; /* Space between buttons */
+    }
+
+    .search-bar {
+      margin: 20px 0;
+    }
+
+    .section {
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .transaction-title {
+      font-weight: bold;
+      color: #343a40;
+      margin-bottom: 10px;
+    }
+
+    .transaction-item {
+      padding: 10px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .transaction-item:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-amount {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .transaction-date {
+      color: gray;
+      margin-top: 5px;
+    }
+
+    .transaction-id {
+      color: #007bff;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #007bff;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000; /* Ensure it sits above other elements */
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .bottom-nav a:hover {
+      color: #ffc107;
+    }
+
+    .bottom-nav i {
+      font-size: 24px;
+    }
+
+
+
+
+
+
+.container {
+  padding: 20px;
+
+  .profile-header {
+    margin-bottom: 20px;
+
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid  #007bff;
+      margin-bottom: 10px;
+    }
+
+    .profile-name {
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #343a40;
+    }
+
+    .profile-email {
+      color: gray;
+      font-size: 0.9em;
+    }
+  }
+
+  .edit-profile-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    .section-title {
+      font-weight: bold;
+      color: #343a40;
+      margin-bottom: 10px;
+    }
+
+    .detail-item {
+      margin-bottom: 10px;
+
+      .detail-value {
+        margin-left: 10px;
+        color: #343a40;
+      }
+    }
+
+    .action-item {
+      margin-top: 10px;
+
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+      }
+    }
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar d-flex justify-content-between align-items-center">
+    <span class="navbar-brand">Investment History</span>
+    <img src="/src/main/resources/static/assets/img/bank.png" alt="Profile" class="profile-img" style="width: 35px; height: 35px; border-radius: 50%;">
+  </nav>
+
+  <!-- Main Container -->
+  <!-- Main Container -->
+<div class="container mt-4"> <!-- Removed bottom margin to avoid overlap with fixed bottom nav -->
+
+    <!-- User Profile Header -->
+    <div class="profile-header text-center">
+      <img src="/src/main/resources/static/assets/img/bank.png" alt="User Avatar" class="profile-avatar">
+      <h2 class="profile-name">John Doe</h2>
+      <p class="profile-email">johndoe@example.com</p>
+    </div>
+  
+    <!-- Edit Profile Button -->
+    <div class="text-center mt-3">
+      <button class="btn btn-primary edit-profile-btn">Edit Profile</button>
+    </div>
+  
+    <!-- User Details Section -->
+    <div class="section mt-4">
+      <h3 class="section-title">User Details</h3>
+      <div class="detail-item">
+        <strong>Username:</strong>
+        <span class="detail-value">johndoe</span>
+      </div>
+      <div class="detail-item">
+        <strong>Phone Number:</strong>
+        <span class="detail-value">+1234567890</span>
+      </div>
+      <div class="detail-item">
+        <strong>Address:</strong>
+        <span class="detail-value">123 Main St, Springfield</span>
+      </div>
+      <div class="detail-item">
+        <strong>Date of Birth:</strong>
+        <span class="detail-value">January 1, 1990</span>
+      </div>
+    </div>
+  
+    <!-- Account Actions Section -->
+    <div class="section mt-4">
+      <h3 class="section-title">Account Actions</h3>
+      <div class="action-item">
+        <button class="btn btn-warning">Change Password</button>
+      </div>
+      <div class="action-item">
+        <button class="btn btn-danger">Delete Account</button>
+      </div>
+    </div>
+  
+  </div>
+
+   <!-- Bottom Navigation Bar -->
+   <nav class="bottom-nav">
+    <a href="Dashboard.html">
+      <div class="nav-icon">🏠</div>
+      <div class="nav-text">Home</div>
+    </a>
+    <a href="Wallet.html">
+      <div class="nav-icon">💼</div>
+      <div class="nav-text">Wallet</div>
+    </a>
+    <a href="History.html" >
+      <div class="nav-icon">📜</div>
+      <div class="nav-text">History</div>
+    </a>
+    <a href="#">
+      <div class="nav-icon">👤</div>
+      <div class="nav-text">Profile</div>
+    </a>
+  </nav>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('allTransactionsBtn').addEventListener('click', function() {
+      document.getElementById('allTransactionsSection').classList.remove('d-none');
+      document.getElementById('withdrawalRequestsSection').classList.add('d-none');
+      document.getElementById('planPurchaseSection').classList.add('d-none');
+      document.getElementById('dateFilter').classList.add('d-none'); // Hide date filter on all transactions
+    });
+
+    document.getElementById('withdrawalRequestsBtn').addEventListener('click', function() {
+      document.getElementById('allTransactionsSection').classList.add('d-none');
+      document.getElementById('withdrawalRequestsSection').classList.remove('d-none');
+      document.getElementById('planPurchaseSection').classList.add('d-none');
+      document.getElementById('dateFilter').classList.add('d-none'); // Hide date filter on withdrawal requests
+    });
+
+    document.getElementById('planPurchaseBtn').addEventListener('click', function() {
+      document.getElementById('allTransactionsSection').classList.add('d-none');
+      document.getElementById('withdrawalRequestsSection').classList.add('d-none');
+      document.getElementById('planPurchaseSection').classList.remove('d-none');
+      document.getElementById('dateFilter').classList.add('d-none'); // Hide date filter on plan purchase
+    });
+
+    document.getElementById('dateFilterBtn').addEventListener('click', function() {
+      document.getElementById('dateFilter').classList.toggle('d-none'); // Toggle the date filter visibility
+      document.getElementById('allTransactionsSection').classList.add('d-none');
+      document.getElementById('withdrawalRequestsSection').classList.add('d-none');
+      document.getElementById('planPurchaseSection').classList.add('d-none');
+    });
+
+    document.getElementById('applyDateFilter').addEventListener('click', function() {
+      // Fetch the date inputs
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+
+      // Example: You can filter the transactions here based on the provided date range
+      console.log(`Filtering transactions from ${startDate} to ${endDate}`);
+
+      // You can implement the actual filtering logic here based on your data
+      // For now, we'll just log the dates to the console
+    });
+  </script>
+
+</body>
+</html>
