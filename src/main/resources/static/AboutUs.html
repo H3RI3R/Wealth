@@ -305,61 +305,24 @@
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* Default sidebar width */
-.sidebar {
-    width: 222px;
-    transition: width 0.3s ease;
+.p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Collapsed sidebar width */
-.toggle-sidebar .sidebar {
-    width: 75px;
-}
 
-/* Hide span elements inside the sidebar when collapsed */
-.toggle-sidebar .sidebar-nav .nav-link span {
-    display: none;
-}
 
-/* Ensure icons remain visible */
-.sidebar-nav .nav-link i {
-    font-size: 1.0rem;
-    margin-right: 10px;
-}
 
-/* Transition for smooth width adjustment */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 996;
-    padding: 23px 15px 20px;
-    overflow-y: auto;
-    background-color: black;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    transition: all 0.3s ease;
-}
-.graph-col{
-  border: 1px solid;
-            padding: 14px;
-            margin: 7px;
-            border-radius: 10px;
-            border-color: #DDDDEBBF;
-}
+
+
+
+
+
+
+
+
 
 /* Adjust content alignment when sidebar is collapsed */
 .toggle-sidebar .dashboard-title {
@@ -391,7 +354,7 @@
       <div class="container-fluid">
         <div class="row justify-content-end">
           <div class="col-auto">
-            <div class="card profile-card">
+            <div class="card profile-card" >
               <div class="row no-gutters align-items-center">
                 <div class="col-auto" style="height: 56px">
                   <div class="profile-image">
@@ -441,59 +404,48 @@
         <!-- End Dashboard Nav -->
 
         <li class="nav-item">
-          <a class="nav-link " href="UserDetails.html">
+          <a class="nav-link collapsed" href="UserDetails.html">
             <i class="bi bi-person-fill"></i>
             <span>User Details</span>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Withdrawal.html">
             <i class="bi bi-house-fill"></i>
-            <span>Lobby</span>
+            <span>Withdrawal Request</span>
+          </a>
+        </li>
+        <li class="nav-item"></li>
+          <a class="nav-link collapsed " href="Plans.html">
+            <i class="bi bi-plus-circle-fill"></i>
+            <span>Plan Management</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-credit-card-2-back-fill"></i>
-            <span>Payment</span>
+          <a class="nav-link " href="BankManagement.html">
+            <i class="bi bi-bank2"></i>
+            <span>Bank Management</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Referral.html">
             <i class="bi bi-coin"></i>
             <span>Referral & Earn</span>
           </a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-cash"></i>
-            <span>Commission</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-bank2"></i>
-            <span>Bank Details</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-controller"></i>
-            <span>Game Management</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="AboutUs.html">
             <i class="bi bi-display-fill"></i>
-            <span>System Monitoring</span>
+            <span>About us </span>
           </a>
         </li>
         <li class="nav-item" style="
         position: absolute;
         bottom: 5%;
     ">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Login.html">
             <i class="bi bi-box-arrow-left"></i>
             <span>Logout</span>
           </a>
@@ -580,70 +532,101 @@
         </div>
       </div>
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
 
-      <section class="section m-3" >
-        <div class="row">
-          <div class="col-lg-12">
-  
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">User details</h5>
 
-  
-                <!-- Table with stripped rows -->
-                <table class="table datatable">
-                  <thead>
-                    <tr>
-                      <th>
-                        <b>N</b>ame
-                      </th>
-                      <th>Ext.</th>
-                      <th>City</th>
-                      <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
-                      <th>Completion</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-  
-                    <tr>
-                      <td>Grace Bishop</td>
-                      <td>8340</td>
-                      <td>Rodez</td>
-                      <td>2012/02/10</td>
-                      <td>4%</td>
-                    </tr>
-                    
-                    <tr>
-                      <td>Haviva Hernandez</td>
-                      <td>8136</td>
-                      <td>Suwałki</td>
-                      <td>2000/30/01</td>
-                      <td>16%</td>
-                    </tr>
-                    <tr>
-                      <td>Alisa Horn</td>
-                      <td>9853</td>
-                      <td>Ucluelet</td>
-                      <td>2007/01/11</td>
-                      <td>39%</td>
-                    </tr>
-                    <tr>
-                      <td>Zelenia Roman</td>
-                      <td>7516</td>
-                      <td>Redwater</td>
-                      <td>2012/03/03</td>
-                      <td>31%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- End Table with stripped rows -->
-  
+    
+      <section class="section m-3">
+        <div class="container">
+          <div class="row">
+            <!-- Page Title -->
+            <div class="col-lg-12 text-center mb-4">
+              <h2 class="section-title" style="font-family: 'Varela Round', sans-serif; font-size: 28px; font-weight: bold; color: #0f1422;">About Us - Admin Panel</h2>
+            </div>
+      
+            <!-- Current About Us Content Card -->
+            <div class="col-lg-6 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #F3F6F9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Current About Us Content</h5>
+                  <p class="card-text" style="font-size: 14px; color: #555;">
+                    Welcome to our platform! We are dedicated to providing you with the best possible betting experience. Our team works tirelessly to ensure your satisfaction...
+                  </p>
+                  <p class="card-text" style="font-size: 14px; color: #555;">Updated on: <strong>2024-10-15</strong></p>
+                </div>
               </div>
             </div>
-  
+      
+            <!-- Edit About Us Content Card -->
+            <div class="col-lg-6 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #FFFBF5; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Edit About Us Content</h5>
+                  <form>
+                    <div class="form-group mb-2">
+                      <label for="aboutUsContent" style="font-size: 14px;">Edit Content</label>
+                      <textarea class="form-control" id="aboutUsContent" rows="6" placeholder="Write your updated About Us content here..." style="border-radius: 10px;"></textarea>
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="lastUpdated" style="font-size: 14px;">Last Updated Date</label>
+                      <input type="date" class="form-control" id="lastUpdated" style="border-radius: 10px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2" style="border-radius: 10px; background-color: #0f1422;">Save Changes</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Vision and Mission Card -->
+            <div class="col-lg-6 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #EDF7F4; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Our Vision & Mission</h5>
+                  <form>
+                    <div class="form-group mb-2">
+                      <label for="vision" style="font-size: 14px;">Edit Vision</label>
+                      <textarea class="form-control" id="vision" rows="3" placeholder="Our vision is to..." style="border-radius: 10px;"></textarea>
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="mission" style="font-size: 14px;">Edit Mission</label>
+                      <textarea class="form-control" id="mission" rows="3" placeholder="Our mission is to..." style="border-radius: 10px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2" style="border-radius: 10px; background-color: #0f1422;">Update Vision & Mission</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Key Team Members Card -->
+            <div class="col-lg-6 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #F6F0E1; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Key Team Members</h5>
+                  <form>
+                    <div class="form-group mb-2">
+                      <label for="teamMember1" style="font-size: 14px;">Team Member 1</label>
+                      <input type="text" class="form-control" id="teamMember1" placeholder="John Doe - CEO" style="border-radius: 10px;">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="teamMember2" style="font-size: 14px;">Team Member 2</label>
+                      <input type="text" class="form-control" id="teamMember2" placeholder="Jane Smith - COO" style="border-radius: 10px;">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="teamMember3" style="font-size: 14px;">Team Member 3</label>
+                      <input type="text" class="form-control" id="teamMember3" placeholder="Mike Lee - CTO" style="border-radius: 10px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2" style="border-radius: 10px; background-color: #0f1422;">Update Team Members</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+      
           </div>
         </div>
       </section>
+
+
+
       
     </main>
     <!-- End #main -->
@@ -671,6 +654,12 @@
     ></a>
 
     <!-- Vendor JS Files -->
+     <!-- Latest Font Awesome CDN -->
+
+
+<!-- Font Awesome only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
+
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/chart.js/chart.umd.js"></script>
@@ -683,5 +672,6 @@
     <!-- Template Main JS File -->
     <!--  <script src="assets/js/main.js"></script>-->
     <script src="assets/js/index.js"></script>
+    <script src="BankManagement.js"></script>
   </body>
 </html>

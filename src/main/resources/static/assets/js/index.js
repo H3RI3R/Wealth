@@ -1,4 +1,36 @@
+async function loadPage(page) {
+    const token = localStorage.getItem('authToken');
 
+    try {
+        const response = await fetch(`http://localhost:8080/${page}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, // Ensure this is correct
+                'Content-Type': 'text/html'
+            }
+        });
+
+        if (response.ok) {
+            const content = await response.text();
+            document.open();
+            document.write(content);
+            document.close();
+        } else if (response.status === 401) {
+
+            localStorage.removeItem('authToken');
+            window.location.href = 'login.html';
+        } else {
+            throw new Error('Unauthorized access or page not found');
+        }
+    } catch (error) {
+        console.error('Error loading page:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.message || 'Something went wrong while loading the page.'
+        });
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     const userEmail = sessionStorage.getItem('userEmail');
@@ -8,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.toggle-sidebar-btn').addEventListener('click', function() {
         const rowElement = document.querySelector('.row.justify-content-center');
         
-        // Toggle the height between 100% and 125%
+
         if (rowElement.style.height === '125%') {
             rowElement.style.height = '115%';
         } else {

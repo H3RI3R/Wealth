@@ -305,6 +305,12 @@
 
 }
 
+.p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
 
 
 
@@ -361,6 +367,77 @@
             border-color: #DDDDEBBF;
 }
 
+.card-title {
+    padding: 12px 0px 13px 14px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+.card-body {
+    padding: 0;
+}
+.datatable-selector{
+  border-color: #e1e1e1;
+}
+.datatable-container{
+  padding: 10px;
+}
+label {
+    display: inline-block;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    background-color: transparent;
+    color: white;
+    font-size: 13px;
+}
+.form-control:focus{
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+    background-color:transparent;
+color: white;
+}
+.table{
+    --bs-table-color-type: initial;
+    --bs-table-bg-type: initial;
+    --bs-table-color-state: initial;
+    --bs-table-bg-state: initial;
+    --bs-table-color: var(--bs-emphasis-color);
+    /* --bs-table-bg: var(--bs-body-bg); */
+    --bs-table-border-color: var(--bs-border-color);
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: var(--bs-emphasis-color);
+    --bs-table-striped-bg: rgba(var(--bs-emphasis-color-rgb), 0.05);
+    --bs-table-active-color: var(--bs-emphasis-color);
+    --bs-table-active-bg: rgba(var(--bs-emphasis-color-rgb), 0.1);
+    --bs-table-hover-color: var(--bs-emphasis-color);
+    --bs-table-hover-bg: rgba(var(--bs-emphasis-color-rgb), 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    vertical-align: top;
+    border-color: var(--bs-table-border-color);
+    background-color: antiquewhite;
+}
+
+
 /* Adjust content alignment when sidebar is collapsed */
 .toggle-sidebar .dashboard-title {
     margin-left: 80px; /* Adjust according to your layout */
@@ -391,7 +468,7 @@
       <div class="container-fluid">
         <div class="row justify-content-end">
           <div class="col-auto">
-            <div class="card profile-card">
+            <div class="card profile-card" >
               <div class="row no-gutters align-items-center">
                 <div class="col-auto" style="height: 56px">
                   <div class="profile-image">
@@ -441,59 +518,48 @@
         <!-- End Dashboard Nav -->
 
         <li class="nav-item">
-          <a class="nav-link " href="UserDetails.html">
+          <a class="nav-link collapsed" href="UserDetails.html">
             <i class="bi bi-person-fill"></i>
             <span>User Details</span>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Withdrawal.html">
             <i class="bi bi-house-fill"></i>
-            <span>Lobby</span>
+            <span>Withdrawal Request</span>
+          </a>
+        </li>
+        <li class="nav-item"></li>
+          <a class="nav-link " href="Plans.html">
+            <i class="bi bi-plus-circle-fill"></i>
+            <span>Plan Management</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-credit-card-2-back-fill"></i>
-            <span>Payment</span>
+          <a class="nav-link collapsed" href="BankManagement.html">
+            <i class="bi bi-bank2"></i>
+            <span>Bank Management</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Referral.html">
             <i class="bi bi-coin"></i>
             <span>Referral & Earn</span>
           </a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-cash"></i>
-            <span>Commission</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-bank2"></i>
-            <span>Bank Details</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-controller"></i>
-            <span>Game Management</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="AboutUs.html">
             <i class="bi bi-display-fill"></i>
-            <span>System Monitoring</span>
+            <span>About us </span>
           </a>
         </li>
         <li class="nav-item" style="
         position: absolute;
         bottom: 5%;
     ">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Login.html">
             <i class="bi bi-box-arrow-left"></i>
             <span>Logout</span>
           </a>
@@ -580,70 +646,236 @@
         </div>
       </div>
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
 
-      <section class="section m-3" >
-        <div class="row">
-          <div class="col-lg-12">
-  
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">User details</h5>
 
-  
-                <!-- Table with stripped rows -->
-                <table class="table datatable">
-                  <thead>
-                    <tr>
-                      <th>
-                        <b>N</b>ame
-                      </th>
-                      <th>Ext.</th>
-                      <th>City</th>
-                      <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
-                      <th>Completion</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-  
-                    <tr>
-                      <td>Grace Bishop</td>
-                      <td>8340</td>
-                      <td>Rodez</td>
-                      <td>2012/02/10</td>
-                      <td>4%</td>
-                    </tr>
+    
+<section class="section m-3">
+    <div class="row">
+        <div class="col-lg-3">
+            <!-- Card for Plan Management Form -->
+            <div class="card" style="    border-radius: 30px;
+    justify-content: center;">
+                <div class="card-body" style="    font-family: 'Varela Round', sans-serif;
+                font-size: 11px;
+                border-radius: 40px;
+                padding: 15px;
+                background-color: #0F1422;">
+                    <h5 class="card-title m-3 text-white p-2 text-center" >Plan Management</h5>
                     
-                    <tr>
-                      <td>Haviva Hernandez</td>
-                      <td>8136</td>
-                      <td>Suwałki</td>
-                      <td>2000/30/01</td>
-                      <td>16%</td>
-                    </tr>
-                    <tr>
-                      <td>Alisa Horn</td>
-                      <td>9853</td>
-                      <td>Ucluelet</td>
-                      <td>2007/01/11</td>
-                      <td>39%</td>
-                    </tr>
-                    <tr>
-                      <td>Zelenia Roman</td>
-                      <td>7516</td>
-                      <td>Redwater</td>
-                      <td>2012/03/03</td>
-                      <td>31%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- End Table with stripped rows -->
-  
-              </div>
+                    <!-- Form to Add Plan -->
+                    <form id="addPlanForm" class="mb-4">
+                        <div class="row mb-3">
+                            <label for="PlanName" class="col-sm-4 col-form-label">Plan Name</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="PlanName" required>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <label for="inputPassword3" class="col-sm-4 col-form-label">Plan Amount</label>
+                            <div class="col-sm-8">
+                              <input type="number" class="form-control" id="PlanAmount" min="0" required>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <label for="inputPassword3" class="col-sm-4 col-form-label">Daily Withdrawal</label>
+                            <div class="col-sm-8">
+                              <input type="number" class="form-control" id="DailyWithdrawal" min="0"  required>
+                            </div>
+                          </div>
+                          <div class="row mb-2">
+                            <div  class="col text-center col-form-label">
+                                <button type="submit" class="btn btn-success" style="background-color: #0F1422;">Add Plan</button>
+                            </div>
+
+                            
+                          </div>
+
+                                
+                    </form>
+                </div>
             </div>
-  
+</div>
+<div class="col-lg-9">
+    <div class="card" style="border-radius: 30px; justify-content: center;">
+      <div class="card-body" style="font-family: 'Varela Round', sans-serif; font-size: 11px; border-radius: 40px; padding: 15px; background-color: #94CED7;">
+        
+        <div class="row">
+          <!-- Users button - selected by default -->
+          <div class="col-2" style="padding: 0px;">
+            <p id="usersButton" class="left" style="font-size: 25px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; color: #0f1422; font-weight: bold; cursor: pointer; transition: color 0.3s, font-size 0.3s, font-weight 0.3s;">Users</p>
+          </div>
+          
+          <!-- Deposit button -->
+          <div class="col-2" style="padding: 0px;">
+            <p id="depositButton" class="left" style="font-size: 20px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; color: #658B96; font-weight: normal; cursor: pointer; transition: color 0.3s, font-size 0.3s, font-weight 0.3s;">Deposit</p>
+          </div>
+          
+          <!-- Withdraw button -->
+          <div class="col-6" style="padding: 0px;">
+            <p id="withdrawButton" class="left" style="font-size: 20px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; color: #658B96; font-weight: normal; cursor: pointer; transition: color 0.3s, font-size 0.3s, font-weight 0.3s;">Withdraw</p>
+          </div>
+          
+          <!-- Refresh button -->
+          <div class="col-2" style="padding: 0px;">
+            <button id="refreshButton" style="font-size: 15px; margin-left: 50px; margin-top: 10px; margin-bottom: 10px; color: #ffffff; background-color: #0f1422; border: none; cursor: pointer; border-radius: 5px; padding: 5px 10px;">Refresh</button>
           </div>
         </div>
-      </section>
+        
+        <!-- Empty row to add the graph -->
+        <div class="row" style="justify-content: center;">
+          <div class="col-8">
+            <canvas id="lineChart1" style="height: 350px;"></canvas>
+          </div>
+        </div>
+        
+        <!-- Include Chart.js library -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <!-- Graph Script -->
+        <script>
+          let lineChart1;
+          const chartDataUsers = [12, 19, 3, 5, 2, 3, 7, 8, 6]; // Default for "Users"
+          const chartDataDeposit = [10, 15, 8, 6, 4, 2, 12, 9, 5]; // Data for "Deposit"
+          const chartDataWithdraw = [5, 9, 2, 4, 6, 3, 7, 12, 8]; // Data for "Withdraw"
+  
+          // Function to update chart data
+          function updateChartData(data) {
+            lineChart1.data.datasets[0].data = data;
+            lineChart1.update();
+          }
+  
+          // Function to reset button styles to default
+          function resetButtonStyles() {
+            document.getElementById('usersButton').style.color = '#658B96';
+            document.getElementById('usersButton').style.fontWeight = 'normal';
+            document.getElementById('usersButton').style.fontSize = '20px';
+            
+            document.getElementById('depositButton').style.color = '#658B96';
+            document.getElementById('depositButton').style.fontWeight = 'normal';
+            document.getElementById('depositButton').style.fontSize = '20px';
+
+            document.getElementById('withdrawButton').style.color = '#658B96';
+            document.getElementById('withdrawButton').style.fontWeight = 'normal';
+            document.getElementById('withdrawButton').style.fontSize = '20px';
+          }
+  
+          // Function to initialize chart
+          function initializeChart(data) {
+            const ctx = document.getElementById('lineChart1').getContext('2d');
+            lineChart1 = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+                datasets: [{
+                  label: 'Plan Data',
+                  data: data,
+                  backgroundColor: '#DCEAEA',
+                  borderColor: '#ffffff',
+                  borderWidth: 2,
+                  tension: 0.4,
+                  fill: true,
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    grid: { display: false },
+                    ticks: { display: false }
+                  },
+                  x: {
+                    grid: { display: false },
+                    ticks: { color: '#000' }
+                  }
+                },
+                elements: {
+                  point: {
+                    radius: 5,
+                    backgroundColor: '#DCEAEA'
+                  }
+                }
+              }
+            });
+          }
+  
+          // Initialize chart with default "Users" data
+          document.addEventListener("DOMContentLoaded", () => {
+            initializeChart(chartDataUsers);
+  
+            // Refresh button event
+            document.getElementById('refreshButton').addEventListener('click', function() {
+              location.reload(); // Refreshes the page
+            });
+  
+            // Users button event
+            document.getElementById('usersButton').addEventListener('click', function() {
+              resetButtonStyles(); // Reset all buttons to default style
+              this.style.color = '#0f1422';  // Set selected color
+              this.style.fontWeight = 'bold'; // Set selected font weight
+              this.style.fontSize = '25px';
+              updateChartData(chartDataUsers); // Update chart to "Users" data
+            });
+  
+            // Deposit button event
+            document.getElementById('depositButton').addEventListener('click', function() {
+              resetButtonStyles();
+              this.style.color = '#0f1422';
+              this.style.fontWeight = 'bold';
+              this.style.fontSize = '25px';
+              updateChartData(chartDataDeposit); // Update chart to "Deposit" data
+            });
+  
+            // Withdraw button event
+            document.getElementById('withdrawButton').addEventListener('click', function() {
+              resetButtonStyles();
+              this.style.color = '#0f1422';
+              this.style.fontWeight = 'bold';
+              this.style.fontSize = '25px';
+              updateChartData(chartDataWithdraw); // Update chart to "Withdraw" data
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<div class="row"><div class="col-lg-12">
+    <!-- Card for Table to List and Manage Plans -->
+    <div class="card mt-4" style="    border-radius: 30px;
+background-color: #f3a777;     padding: 10px;">
+        <div class="card-body" style="
+">
+            <h5 class="card-title text-white " style="background-color: #FE4B25;border-radius: 30px;">Existing Plans</h5>
+
+            <!-- Table to List and Manage Plans -->
+            <div class="table-responsive" style="
+border-radius: 30px;
+background-color: antiquewhite;
+">
+                <table class="table table-striped" style="    background-color: antiquewhite;">
+                    <thead>
+                        <tr>
+                            <th>Plan ID</th>
+                            <th>Plan Name</th>
+                            <th>Plan Amount</th>
+                            <th>Daily Withdrawal</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="plansTable">
+                        <!-- Plan rows will be populated dynamically using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
       
     </main>
     <!-- End #main -->
@@ -671,6 +903,12 @@
     ></a>
 
     <!-- Vendor JS Files -->
+     <!-- Latest Font Awesome CDN -->
+
+
+<!-- Font Awesome only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
+
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/chart.js/chart.umd.js"></script>

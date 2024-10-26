@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      padding-top: 60px; /* Adjust for fixed header height */
+      padding-bottom: 60px; /* Adjust for fixed footer height */
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    /* Fixed Navbar */
+    .navbar {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      position: fixed; /* Fixed positioning */
+      top: 0; /* At the top */
+      left: 0; /* Align to the left */
+      right: 0; /* Align to the right */
+      z-index: 1000; /* Ensure it sits above other elements */
+    }
+
+    
+    
+
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar-brand:hover {
+      color: white;
+    }
+
+    .profile-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    .dashboard-title {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #343a40;
+    }
+
+    .card {
+      border-radius: 15px;
+      margin: 10px 0;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .quick-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .action-btn {
+      width: 30%;
+      padding: 10px;
+      font-size: 14px;
+
+      color: rgb(0, 0, 0);
+      border-radius: 30px;
+      text-align: center;
+      background: linear-gradient(#ffcccc, #9198e5);
+      text-decoration: auto;
+    }
+    .action-btn:hover {background-color: #3e8e41}
+
+.action-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #007bff;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000; /* Ensure it sits above other elements */
+      
+    }
+
+
+    .bottom-nav a {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .bottom-nav .nav-icon {
+      font-size: 24px;
+    }
+
+    .bottom-nav .nav-text {
+      font-size: 12px;
+    }
+
+    /* Custom Modal */
+    .modal-header {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .modal-footer button {
+      width: 100%;
+    }
+    .card {
+    border-radius: 15px;
+    margin: 0px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+  </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar d-flex justify-content-between align-items-center">
+      <span class="navbar-brand">Dashboard</span>
+      <img src="/src/main/resources/static/assets/img/bank.png" alt="Profile" class="profile-img">
+    </nav>
+  
+    <!-- Main Container -->
+    <div class="container-fluid mt-4">
+  
+      <!-- Dashboard Title -->
+      <div class="dashboard-title">
+        <h2 style="
+      font-size: 49px;
+      font-weight: 600;
+  ">My Investments</h2>
+      </div>
+  
+      <!-- Total Investment Card -->
+      <div class="container">
+          <div class="row">
+           <div class="col-6">
+      
+                     <div class="row">
+                       <div class="card p-3" style="
+             margin: 0px 0px 15px 0px;
+             background: #FEECBA;
+      ">
+                          <div class="card-body text-center">
+                            <h5 class="card-title" style="font-weight: bold; color: #0f1422; ">Total Investment</h5>
+                            <p class="card-text" style="font-size: 18px; color: #007bff;">$10,000</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="card p-3" style="
+      background: #24252A;
+  ">
+                          <div class="card-body text-center" style="
+      color: #E8E8E9;
+  ">
+                            <h5 class="card-title" style="font-weight: bold;/* color: #0f1422; */color: #E8E8E9;">Withdrawable Balance</h5>
+                            <p class="card-text" style="font-size: 18px; color: #28a745;">$500</p>
+                          </div>
+                        </div>
+                      </div>
+          </div>
+          <div class="col-6 h-51">
+              <div class="card p-3 h-100" style="
+      background: #D6D0FC;
+  ">
+                  <div class="card-body text-center">
+                    <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Next Unlock Date</h5>
+                    <p class="card-text" style="font-size: 18px;">$1,000 unlocks on 20th October 2024</p>
+                  </div>
+                </div>
+      
+      
+          </div>
+      </div>
+      </div>
+          
+  
+         
+  
+        
+            <!-- Deposit Details Card (Unlock Information) -->
+           
+       </div>
+    
+  
+      <!-- Quick Action Buttons -->
+      <div class="quick-actions">
+        <a href="#" class="action-btn" data-bs-toggle="modal" data-bs-target="#purchaseModal">Purchase Plan</a>
+        <a href="#" class="action-btn" data-bs-toggle="modal" data-bs-target="#withdrawModal">Withdraw</a>
+        <a href="#" class="action-btn" data-bs-toggle="modal" data-bs-target="#historyModal">History</a>
+      </div>
+  
+    
+  
+    <!-- Purchase Plan Modal -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="purchaseModalLabel">Purchase Investment Plan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Select a plan to invest in:</p>
+            <!-- Sample Plans -->
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action">
+                Basic Plan - $500 - 5% Return
+              </button>
+              <button type="button" class="list-group-item list-group-item-action">
+                Premium Plan - $1,000 - 7% Return
+              </button>
+              <button type="button" class="list-group-item list-group-item-action">
+                VIP Plan - $5,000 - 10% Return
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Purchase</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Withdraw Modal -->
+    <div class="modal fade" id="withdrawModal" tabindex="-1" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="withdrawModalLabel">Withdraw Funds</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Your withdrawable amount is: <strong>$500</strong></p>
+            <p>Enter an amount to withdraw:</p>
+            <input type="number" class="form-control" placeholder="Amount" max="500">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Request Withdrawal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- History Modal -->
+    <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="historyModalLabel">Investment History</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Withdrawal and Plan Purchase History -->
+            <h6>Plan Purchase History</h6>
+            <ul class="list-group mb-3">
+              <li class="list-group-item">Basic Plan - $500 - 5% - Purchased on 15th October 2024</li>
+              <li class="list-group-item">Premium Plan - $1,000 - 7% - Purchased on 5th October 2024</li>
+            </ul>
+            <h6>Withdrawal History</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Requested $500 - <span class="text-warning">Pending</span> - 12th October 2024</li>
+              <li class="list-group-item">Requested $200 - <span class="text-success">Accepted</span> - 1st October 2024</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <a href="Dashboard.html">
+        <div class="nav-icon">🏠</div>
+        <div class="nav-text">Home</div>
+      </a>
+      <a href="Wallet.html">
+        <div class="nav-icon">💼</div>
+        <div class="nav-text">Wallet</div>
+      </a>
+      <a href="History.html">
+        <div class="nav-icon">📜</div>
+        <div class="nav-text">History</div>
+      </a>
+      <a href="#">
+        <div class="nav-icon">👤</div>
+        <div class="nav-text">Profile</div>
+      </a>
+    </nav>
+  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Code injected by live-server -->
+ 
+  
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body>
+</html>

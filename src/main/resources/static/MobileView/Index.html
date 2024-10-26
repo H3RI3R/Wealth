@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+    
+    .navbar {
+    background-color: #000000;
+    color: white;
+    padding: 108px 10px;
+    margin-bottom: 26px;
+}
+    .navbar-brand {
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar-brand:hover {
+      color: white;
+    }
+
+    .profile-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    .dashboard-title {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #343a40;
+    }
+
+    .card {
+      border-radius: 15px;
+      margin: 10px 0;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .quick-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .action-btn {
+      width: 30%;
+      padding: 10px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .bottom-nav .nav-icon {
+      font-size: 24px;
+    }
+
+    .bottom-nav .nav-text {
+      font-size: 12px;
+    }
+
+
+    /* Custom Modal */
+    .modal-header {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .modal-footer button {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar d-flex justify-content-between align-items-center">
+    <span class="navbar-brand">Dashboard</span>
+    <img src="../assets/img/bank.png" alt="Profile" class="profile-img">
+    <img src="../assets/img/creditCard.png" alt="image" class="Credit-img">
+    
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container-fluid mt-4">
+
+    <!-- Dashboard Title -->
+    <div class="dashboard-title">
+      <h2>My Investments</h2>
+    </div>
+
+    <!-- Total Investment Card -->
+    <div class="card p-3">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Total Investment</h5>
+        <p class="card-text" style="font-size: 18px; color: #007bff;">$10,000</p>
+      </div>
+    </div>
+
+    <!-- Withdrawable Balance Card -->
+    <div class="card p-3">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Withdrawable Balance</h5>
+        <p class="card-text" style="font-size: 18px; color: #28a745;">$500</p>
+      </div>
+    </div>
+
+    <!-- Deposit Details Card (Unlock Information) -->
+    <div class="card p-3">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Next Unlock Date</h5>
+        <p class="card-text" style="font-size: 18px;">$1,000 unlocks on 20th October 2024</p>
+      </div>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-actions">
+      <a href="#" class="action-btn" data-bs-toggle="modal" data-bs-target="#purchaseModal">Purchase Plan</a>
+      <a href="#" class="action-btn" data-bs-toggle="modal" data-bs-target="#withdrawModal">Withdraw</a>
+      <a href="#" class="action-btn" data-bs-toggle="modal" data-bs-target="#historyModal">History</a>
+    </div>
+
+  </div>
+
+  <!-- Purchase Plan Modal -->
+  <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="purchaseModalLabel">Purchase Investment Plan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Select a plan to invest in:</p>
+          <!-- Sample Plans -->
+          <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action">
+              Basic Plan - $500 - 5% Return
+            </button>
+            <button type="button" class="list-group-item list-group-item-action">
+              Premium Plan - $1,000 - 7% Return
+            </button>
+            <button type="button" class="list-group-item list-group-item-action">
+              VIP Plan - $5,000 - 10% Return
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Withdraw Modal -->
+  <div class="modal fade" id="withdrawModal" tabindex="-1" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="withdrawModalLabel">Withdraw Funds</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Your withdrawable amount is: <strong>$500</strong></p>
+          <p>Enter an amount to withdraw:</p>
+          <input type="number" class="form-control" placeholder="Amount" max="500">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Request Withdrawal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History Modal -->
+  <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="historyModalLabel">Investment History</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Withdrawal and Plan Purchase History -->
+          <h6>Plan Purchase History</h6>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">Basic Plan - $500 - 5% - Purchased on 15th October 2024</li>
+            <li class="list-group-item">Premium Plan - $1,000 - 7% - Purchased on 5th October 2024</li>
+          </ul>
+          <h6>Withdrawal History</h6>
+          <ul class="list-group">
+            <li class="list-group-item">Requested $500 - <span class="text-warning">Pending</span> - 12th October 2024</li>
+            <li class="list-group-item">Requested $200 - <span class="text-success">Accepted</span> - 1st October 2024</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <a href="#">
+      <div class="nav-icon">🏠</div>
+      <div class="nav-text">Home</div>
+    </a>
+    <a href="#">
+      <div class="nav-icon">💼</div>
+      <div class="nav-text">Wallet</div>
+    </a>
+    <a href="#" data-bs-toggle="modal" data-bs-target="#historyModal">
+      <div class="nav-icon">📜</div>
+      <div class="nav-text">History</div>
+    </a>
+    <a href="#">
+      <div class="nav-icon">👤</div>
+      <div class="nav-text">Profile</div>
+    </a>
+  </nav>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

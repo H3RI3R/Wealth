@@ -305,61 +305,24 @@
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* Default sidebar width */
-.sidebar {
-    width: 222px;
-    transition: width 0.3s ease;
+.p{
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Collapsed sidebar width */
-.toggle-sidebar .sidebar {
-    width: 75px;
-}
 
-/* Hide span elements inside the sidebar when collapsed */
-.toggle-sidebar .sidebar-nav .nav-link span {
-    display: none;
-}
 
-/* Ensure icons remain visible */
-.sidebar-nav .nav-link i {
-    font-size: 1.0rem;
-    margin-right: 10px;
-}
 
-/* Transition for smooth width adjustment */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 996;
-    padding: 23px 15px 20px;
-    overflow-y: auto;
-    background-color: black;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    transition: all 0.3s ease;
-}
-.graph-col{
-  border: 1px solid;
-            padding: 14px;
-            margin: 7px;
-            border-radius: 10px;
-            border-color: #DDDDEBBF;
-}
+
+
+
+
+
+
+
+
 
 /* Adjust content alignment when sidebar is collapsed */
 .toggle-sidebar .dashboard-title {
@@ -391,7 +354,7 @@
       <div class="container-fluid">
         <div class="row justify-content-end">
           <div class="col-auto">
-            <div class="card profile-card">
+            <div class="card profile-card" >
               <div class="row no-gutters align-items-center">
                 <div class="col-auto" style="height: 56px">
                   <div class="profile-image">
@@ -441,59 +404,48 @@
         <!-- End Dashboard Nav -->
 
         <li class="nav-item">
-          <a class="nav-link " href="UserDetails.html">
+          <a class="nav-link collapsed" href="UserDetails.html">
             <i class="bi bi-person-fill"></i>
             <span>User Details</span>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Withdrawal.html">
             <i class="bi bi-house-fill"></i>
-            <span>Lobby</span>
+            <span>Withdrawal Request</span>
+          </a>
+        </li>
+        <li class="nav-item"></li>
+          <a class="nav-link collapsed " href="Plans.html">
+            <i class="bi bi-plus-circle-fill"></i>
+            <span>Plan Management</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-credit-card-2-back-fill"></i>
-            <span>Payment</span>
+          <a class="nav-link " href="BankManagement.html">
+            <i class="bi bi-bank2"></i>
+            <span>Bank Management</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Referral.html">
             <i class="bi bi-coin"></i>
             <span>Referral & Earn</span>
           </a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-cash"></i>
-            <span>Commission</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-bank2"></i>
-            <span>Bank Details</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
-            <i class="bi bi-controller"></i>
-            <span>Game Management</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="AboutUs.html">
             <i class="bi bi-display-fill"></i>
-            <span>System Monitoring</span>
+            <span>About us </span>
           </a>
         </li>
         <li class="nav-item" style="
         position: absolute;
         bottom: 5%;
     ">
-          <a class="nav-link collapsed" href="ADPaymentPortal.html">
+          <a class="nav-link collapsed" href="Login.html">
             <i class="bi bi-box-arrow-left"></i>
             <span>Logout</span>
           </a>
@@ -580,70 +532,121 @@
         </div>
       </div>
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
 
-      <section class="section m-3" >
-        <div class="row">
-          <div class="col-lg-12">
-  
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">User details</h5>
 
-  
-                <!-- Table with stripped rows -->
-                <table class="table datatable">
-                  <thead>
-                    <tr>
-                      <th>
-                        <b>N</b>ame
-                      </th>
-                      <th>Ext.</th>
-                      <th>City</th>
-                      <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
-                      <th>Completion</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-  
-                    <tr>
-                      <td>Grace Bishop</td>
-                      <td>8340</td>
-                      <td>Rodez</td>
-                      <td>2012/02/10</td>
-                      <td>4%</td>
-                    </tr>
-                    
-                    <tr>
-                      <td>Haviva Hernandez</td>
-                      <td>8136</td>
-                      <td>Suwałki</td>
-                      <td>2000/30/01</td>
-                      <td>16%</td>
-                    </tr>
-                    <tr>
-                      <td>Alisa Horn</td>
-                      <td>9853</td>
-                      <td>Ucluelet</td>
-                      <td>2007/01/11</td>
-                      <td>39%</td>
-                    </tr>
-                    <tr>
-                      <td>Zelenia Roman</td>
-                      <td>7516</td>
-                      <td>Redwater</td>
-                      <td>2012/03/03</td>
-                      <td>31%</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- End Table with stripped rows -->
-  
+    
+      <section class="section m-3">
+        <div class="container">
+          <div class="row">
+            <!-- Page Title -->
+            <div class="col-lg-12 text-center mb-4">
+              <h2 class="section-title" style="font-family: 'Varela Round', sans-serif; font-size: 28px; font-weight: bold; color: #0f1422;">Referral & Earn Admin Panel</h2>
+            </div>
+      
+            <!-- Referral Overview Card -->
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #E8F6F3; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Referral Overview</h5>
+                  <p class="card-text" style="font-size: 14px; color: #555;">Total Referrals: <strong>120</strong></p>
+                  <p class="card-text" style="font-size: 14px; color: #555;">Total Earnings from Referrals: <strong>$1500</strong></p>
+                  <p class="card-text" style="font-size: 14px; color: #555;">Current Referral Bonus: <strong>5%</strong></p>
+                </div>
               </div>
             </div>
-  
+      
+            <!-- Referral Settings Card -->
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #FFF5E1; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Referral Settings</h5>
+                  <form>
+                    <div class="form-group mb-2">
+                      <label for="referralBonus" style="font-size: 14px;">Referral Bonus (%)</label>
+                      <input type="number" class="form-control" id="referralBonus" placeholder="5" style="border-radius: 10px;">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="minEarning" style="font-size: 14px;">Minimum Earning for Bonus ($)</label>
+                      <input type="number" class="form-control" id="minEarning" placeholder="100" style="border-radius: 10px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="border-radius: 10px; background-color: #0f1422;">Save Settings</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Referral Statistics Card -->
+            <div class="col-lg-4 mb-3">
+              <div class="card" style="border-radius: 30px; background-color: #F6E8E8; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Referral Statistics</h5>
+                  <canvas id="referralChart" style="height: 150px;"></canvas>
+                  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                  <script>
+                    var ctx = document.getElementById('referralChart').getContext('2d');
+                    var referralChart = new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                        labels: ['January', 'February', 'March', 'April', 'May'],
+                        datasets: [{
+                          label: 'Referrals',
+                          data: [12, 19, 3, 5, 2],
+                          backgroundColor: ['#4CAF50', '#FF9800', '#F44336', '#2196F3', '#9C27B0'],
+                          borderWidth: 1
+                        }]
+                      },
+                      options: {
+                        scales: {
+                          y: {
+                            beginAtZero: true
+                          }
+                        }
+                      }
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Bonus Payout History Card -->
+            <div class="col-lg-12 mt-4">
+              <div class="card" style="border-radius: 30px; background-color: #F3E9E5; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold; color: #0f1422;">Bonus Payout History</h5>
+                  <table class="table table-hover table-bordered" style="font-size: 14px;">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2024-09-01</td>
+                        <td>John Doe</td>
+                        <td>$50</td>
+                        <td><span class="badge bg-success" style="border-radius: 10px;">Paid</span></td>
+                      </tr>
+                      <tr>
+                        <td>2024-09-10</td>
+                        <td>Jane Smith</td>
+                        <td>$30</td>
+                        <td><span class="badge bg-danger" style="border-radius: 10px;">Pending</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+
+
       
     </main>
     <!-- End #main -->
@@ -671,6 +674,12 @@
     ></a>
 
     <!-- Vendor JS Files -->
+     <!-- Latest Font Awesome CDN -->
+
+
+<!-- Font Awesome only -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjMgsT+V+h5sC5k5T35QR4E1yZgP1lbmE6Kmd" crossorigin="anonymous"></script>
+
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/chart.js/chart.umd.js"></script>
@@ -683,5 +692,6 @@
     <!-- Template Main JS File -->
     <!--  <script src="assets/js/main.js"></script>-->
     <script src="assets/js/index.js"></script>
+    <script src="BankManagement.js"></script>
   </body>
 </html>
