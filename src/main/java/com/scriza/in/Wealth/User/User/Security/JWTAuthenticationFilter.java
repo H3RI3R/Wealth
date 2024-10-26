@@ -5,12 +5,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -43,15 +42,14 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         }
         System.out.println(4);
 
-        // Validate the token
+
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
         System.out.println(5);
 
             UserDetails userDetails = userService.loadUserByUsername(username);
         System.out.println(6);
 
-        //     if (jwtUtil.validateToken(token, userDetails)) {
-        // System.out.println(7);
+
 
                 UsernamePasswordAuthenticationToken authenticationToken =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());

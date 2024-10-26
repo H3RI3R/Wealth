@@ -198,85 +198,138 @@ async function makePostRequest(url, body) {
         throw error;  // Re-throw to be handled by the calling function
     }
 }
-//-------------------------------------Login API----------------------------------------
 
-// Adjusted login function
-async function login(event) {
-    event.preventDefault();  // Prevent the form from refreshing the page
-
-    let email= document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    // Login data object
-    const loginData = {
-        email: email,
-        password: password
-    };
-
-    try {
-        // Using the global function to make the POST request
-        const response = await makePostRequest('http://localhost:8080/authenticate', loginData);
-
-        // Check the status from the API response
-        if (response.status === "success") {
-            // Store the JWT token in localStorage
-            const token = response.jwt;
-            localStorage.setItem('authToken', token);
-
-            // Show SweetAlert success message
+// Show alert function
+function showAlert(message, type) {
             Swal.fire({
-                icon: 'success',
-                title: 'Login Successful',
-                text: response.message,  // Use the message from the API response
-                timer: 1000, // 2 seconds timer before redirect
-                showConfirmButton: false
-            }).then(() => {
-                loadPage('index.html');
-            });
-        } else {
-            // If login fails, show an error message based on the response
-            Swal.fire({
-                icon: 'error',
-                title: 'Login Failed',
-                text: response.message || 'Invalid credentials. Please try again.'
+                icon: type === 'success' ? 'success' : 'error',
+                title: type === 'success' ? 'Success' : 'Error',
+                text: message
             });
         }
+//-------------------------------------Login API----------------------------------------
 
-    } catch (error) {
-        // Show SweetAlert error message for any other exceptions (network issues, etc.)
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.message || 'Something went wrong. Please try again.'
-        });
-    }
-}
+ // Adjusted login function
+ async function login(event) {
+            event.preventDefault();  // Prevent the form from refreshing the page
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Login data object
+            const loginData = {
+                email: email,
+                password: password
+            };
+
+            try {
+                // Using the global function to make the POST request
+                const response = await makePostRequest('http://localhost:8080/authenticate', loginData);
+
+                // Check the status from the API response
+                if (response.status === "success") {
+                    // Store the JWT token in localStorage
+                    const token = response.jwt;
+                    localStorage.setItem('authToken', token);
+
+                    // Show SweetAlert success message
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful',
+                        text: response.message,
+                        timer: 1000, // 1-second timer before redirect
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = 'index.html';
+                    });
+                } else {
+                    // If login fails, show an error message based on the response
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: response.message || 'Invalid credentials. Please try again.'
+                    });
+                }
+
+            } catch (error) {
+                // Show SweetAlert error message for any other exceptions (network issues, etc.)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: error.message || 'Something went wrong. Please try again.'
+                });
+            }
+        }
 //-------------------------------------Register API----------------------------------------
-async function register() {
-    let userName = document.getElementById("signupName").value;
-    let email = document.getElementById("signupEmail").value;
-    let password = document.getElementById("signupPassword").value;
+// Register function
+async function register(event) {
+            event.preventDefault();  // Prevent the form from refreshing the page
 
-    // API body
-    const registerData = {
-        userName: userName,
-        email: email,
-        password: password,
-        role: 'USER'
-    };
+            let userName = document.getElementById("signupName").value;
+            let email = document.getElementById("signupEmail").value;
+            let password = document.getElementById("signupPassword").value;
 
-    try {
+            // API body
+            const registerData = {
+                userName: userName,
+                email: email,
+                password: password,
+                role: 'USER'
+            };
 
-        const response = await makePostRequest('http://localhost:8080/register', registerData);
-        showAlert('User has been registered successfully', 'success');
-        setTimeout(() => {
-            window.location.href = 'login.html';
-        }, 3000);  
-    } catch (error) {
-        // Show error alert
-        showAlert(error.message, 'danger');
-    }
-}
+            try {
+                const response = await makePostRequest('http://localhost:8080/register', registerData);
+
+                if (response.status === "success") {
+                    showAlert('User has been registered successfully', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 3000);  
+                } else {
+                    // Show error alert if registration fails
+                    showAlert(response.message || 'Registration failed', 'danger');
+                }
+            } catch (error) {
+                // Show error alert for network or other issues
+                showAlert(error.message, 'danger');
+            }
+        }
+
+//-----------------------------------Loading page ---------------------------------------------
+// Load page with authentication check
+async function loadPage(page) {
+            const token = localStorage.getItem('authToken');
+
+            try {
+                const response = await fetch(`http://localhost:8080/${page}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'text/html'
+                    }
+                });
+
+                if (response.ok) {
+                    const content = await response.text();
+                    document.open();
+                    document.write(content);
+                    document.close();
+                } else if (response.status === 401) {
+                    // Token expired or invalid
+                    localStorage.removeItem('authToken');
+                    window.location.href = 'login.html';
+                } else {
+                    throw new Error('Unauthorized access or page not found');
+                }
+            } catch (error) {
+                console.error('Error loading page:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: error.message || 'Something went wrong while loading the page.'
+                });
+            }
+        }
     </script>
     </body>
 </html>

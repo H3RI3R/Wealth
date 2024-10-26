@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.scriza.in.Wealth.BankDetails.Entity.Bank;
 import com.scriza.in.Wealth.BankDetails.Service.BankService;
 import com.scriza.in.Wealth.GlobalConfig.Response;
+
 import com.scriza.in.Wealth.User.User.Entity.User;
 import com.scriza.in.Wealth.User.User.Service.CustomUserDetails;
 import com.scriza.in.Wealth.User.User.Service.UserService;
@@ -31,6 +33,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private BankService paymentAccountService;
+
 
 
     @GetMapping("/try")
@@ -91,5 +94,27 @@ public ResponseEntity<?> modifyBankDetails(@PathVariable String  userId,
     return paymentAccountService.updateBankDetails(userId, bankId, updatedBankDetails);
 }
 
+@GetMapping("/plans")
+public ResponseEntity<Map<String, Object>> getAvailablePlans() {
+    return userService.getAvailablePlans();
+}
+
+@PostMapping("/plans/purchase")
+public ResponseEntity<Map<String, Object>> purchasePlan(@RequestBody Map<String, String> requestBody) {
+    String planId = requestBody.get("planId");
+    String userId = requestBody.get("userId"); 
+
+    return userService.purchasePlan(planId, userId);
+}
+
+@GetMapping("/userPlans/{userId}")
+public ResponseEntity<Map<String, Object>> getUserPlans(@PathVariable String userId) { 
+    return userService.getUserPlans(userId); 
+}
+
+@GetMapping("/earnings/{userId}")
+public ResponseEntity<Map<String, Object>> getDailyEarnings(@PathVariable String userId) {
+    return userService.getDailyEarnings(userId); 
+}
 
 }

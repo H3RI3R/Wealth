@@ -3,37 +3,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.scriza.in.Wealth.Admin.Plans.Service.PlanService;
-import com.scriza.in.Wealth.GlobalConfig.Response;
+
 import com.scriza.in.Wealth.Admin.Plans.Entity.Plan;
-import com.scriza.in.Wealth.Admin.Plans.Repository.PlanRepository;
+
 import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/plans")
 public class PlanController {
-    @Autowired
-    private PlanRepository planRepository;
+
     @Autowired
     private PlanService planService;
 
     @GetMapping("/all")
-    public ResponseEntity<Map<String , Object>> getAllPlans() {
+    public ResponseEntity<Map<String, Object>> getAllPlans() {
         return planService.getAllPlan();
     }
+
     @PostMapping("/create")
-    public ResponseEntity<Map<String , Object>> createPlan(@RequestBody Plan plan) {
-        Plan savedPlan = planRepository.save(plan);
-        return Response.responseSuccess("Plan created successfully", "plan", savedPlan);
+    public ResponseEntity<Map<String, Object>> createPlan(@RequestBody Plan plan) {
+        return planService.createPlan(plan);
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Map<String , Object>> getPlanById(@PathVariable Long id) {
-        return planService.getPlanById(id);
+
+    @GetMapping("/Id/{planCode}")
+    public ResponseEntity<Map<String, Object>> getPlanByPlanCode(@PathVariable String planCode) {
+        return planService.getPlanByPlanCode(planCode);
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<Map<String , Object>> updatePlan(@PathVariable Long id, @RequestBody Plan plan) {
- return planService.updatePlan(id, plan.getPlanName(), plan.getAmount(), plan.getDailyWithdrawalAmount(), plan.getDuration());
+
+    @PutMapping("/update/{planCode}")
+    public ResponseEntity<Map<String, Object>> updatePlan(
+            @PathVariable String planCode,
+            @RequestBody Plan planDetails) {
+        return planService.updatePlan(planCode, planDetails);
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String , Object>> deletePlan(@PathVariable Long id) {
-        return planService.deletePlan(id);
+
+    @DeleteMapping("/delete/{planCode}")
+    public ResponseEntity<Map<String, Object>> deletePlan(@PathVariable String planCode) {
+        return planService.deletePlan(planCode);
     }
 }

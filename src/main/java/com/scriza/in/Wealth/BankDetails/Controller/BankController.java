@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.scriza.in.Wealth.BankDetails.Entity.Bank;
 import com.scriza.in.Wealth.BankDetails.Service.BankService;
-import com.scriza.in.Wealth.User.User.Service.UserService;
+
 
 @RestController
 @RequestMapping("/api/admin/bank")

@@ -7,15 +7,18 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
 public class Plan {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long planId;
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+    private String planCode; // New field for the custom plan identifier
+    
     private String planName;
     private double amount;
     private double dailyWithdrawalAmount;
