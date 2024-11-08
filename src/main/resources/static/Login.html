@@ -144,37 +144,7 @@ function login(){
     let userPassword = document.getElementById("password").value; 
     alert("Input value: " + userName+" "+userPassword);
 }
-//-------------------------------------index.html apge  ----------------------------------------
 
-async function loadPage(page) {
-    const token = localStorage.getItem('authToken'); // Retrieve the JWT token
-
-    try {
-        const response = await fetch(`http://localhost:8080/${page}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`, // Include JWT in the header
-                'Content-Type': 'text/html'
-            }
-        });
-
-        if (response.ok) {
-            const content = await response.text(); // Get the content of the page
-            document.open();
-            document.write(content); // Load the HTML content
-            document.close();
-        } else {
-            throw new Error('Unauthorized access or page not found');
-        }
-    } catch (error) {
-        console.error('Error loading page:', error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: error.message || 'Something went wrong while loading the page.'
-        });
-    }
-}
 //-------------------------------------request Handling  ----------------------------------------
 
 // Function to handle POST requests with error handling
@@ -211,36 +181,31 @@ function showAlert(message, type) {
 
  // Adjusted login function
  async function login(event) {
-            event.preventDefault();  // Prevent the form from refreshing the page
+            event.preventDefault();  
 
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
-
-            // Login data object
             const loginData = {
                 email: email,
                 password: password
             };
 
             try {
-                // Using the global function to make the POST request
                 const response = await makePostRequest('http://localhost:8080/authenticate', loginData);
 
-                // Check the status from the API response
                 if (response.status === "success") {
-                    // Store the JWT token in localStorage
                     const token = response.jwt;
-                    localStorage.setItem('authToken', token);
+                    localStorage.setItem('jwt', token);
+                    localStorage.setItem('email', email);
 
-                    // Show SweetAlert success message
                     Swal.fire({
                         icon: 'success',
                         title: 'Login Successful',
                         text: response.message,
-                        timer: 1000, // 1-second timer before redirect
+                        timer: 1000,
                         showConfirmButton: false
                     }).then(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = '/MobileView/Dashboard.html';
                     });
                 } else {
                     // If login fails, show an error message based on the response
@@ -269,7 +234,7 @@ async function register(event) {
             let email = document.getElementById("signupEmail").value;
             let password = document.getElementById("signupPassword").value;
 
-            // API body
+
             const registerData = {
                 userName: userName,
                 email: email,
@@ -295,41 +260,7 @@ async function register(event) {
             }
         }
 
-//-----------------------------------Loading page ---------------------------------------------
-// Load page with authentication check
-async function loadPage(page) {
-            const token = localStorage.getItem('authToken');
 
-            try {
-                const response = await fetch(`http://localhost:8080/${page}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'text/html'
-                    }
-                });
-
-                if (response.ok) {
-                    const content = await response.text();
-                    document.open();
-                    document.write(content);
-                    document.close();
-                } else if (response.status === 401) {
-                    // Token expired or invalid
-                    localStorage.removeItem('authToken');
-                    window.location.href = 'login.html';
-                } else {
-                    throw new Error('Unauthorized access or page not found');
-                }
-            } catch (error) {
-                console.error('Error loading page:', error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: error.message || 'Something went wrong while loading the page.'
-                });
-            }
-        }
     </script>
     </body>
 </html>

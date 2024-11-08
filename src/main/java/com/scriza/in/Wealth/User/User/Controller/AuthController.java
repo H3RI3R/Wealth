@@ -14,6 +14,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -69,5 +70,10 @@ public ResponseEntity<Map<String, Object>> registerUser(
         } catch (Exception e) {
             return Response.responseFailure("An error occurred: " + e.getMessage());
         }
+    }
+    @GetMapping("/protected")
+    public String getProtectedResource(Authentication authentication) {
+        String username = authentication.getName();
+        return "Hello, " + username + "! This is a protected resource.";
     }
 }

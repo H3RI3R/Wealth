@@ -35,7 +35,15 @@ public class UserController {
     private BankService paymentAccountService;
 
 
+    @GetMapping("/userByEmail")
+    public ResponseEntity<Map<String, Object>> getUserByEmail(@RequestParam String email) {
+        User user = userService.findUserByEmail(email);
 
+        if (user == null) {
+            return Response.responseFailure("User not found.");
+        }
+        return Response.responseSuccess("User details retrieved successfully.", "user", user);
+    }
     @GetMapping("/try")
     public String userTry(@AuthenticationPrincipal UserDetails userDetails) {
         System.out.println("working till here"+3);
@@ -46,7 +54,6 @@ public class UserController {
             System.out.println("failed in try ");
         }
         return "cheking if worked";
-
     }
     @GetMapping("/{userId}")
 public ResponseEntity<Map<String, Object>> getUserById(@PathVariable String userId) {

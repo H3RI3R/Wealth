@@ -25,6 +25,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -276,5 +278,8 @@ private double calculateTotalWithdrawableAmount(User user) {
 }
 
 
+public User findUserByEmail(String email) {
+    return userRepository.findByEmail(email); // Assuming there's a UserRepository with a method findByEmail
+}
 
 }
