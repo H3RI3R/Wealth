@@ -18,20 +18,14 @@ public class SecurityFilterConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
         return security.csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login.html", "/assets/**", "/css/**", "/js/**", "/images/**").permitAll()  
+                        .requestMatchers("/login.html","login.js", "/assets/**", "/css/**", "/js/**", "/images/**" , "/**").permitAll()  
                         .requestMatchers("/authenticate", "/register").permitAll()  
                         .requestMatchers("/user/**").hasRole("USER")  
                         .requestMatchers("/admin/**").hasRole("ADMIN")  
                         .anyRequest().authenticated())  
-                
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))  
-                
-                // Set session management to stateless (no session)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))  
-                
-                // Add JWT filter before UsernamePasswordAuthenticationFilter
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)  
                 .build();
     }

@@ -33,10 +33,10 @@ public class BankController {
     // }
 
 
-    // @GetMapping("/user/{userId}")
-    // public ResponseEntity<?> getAllPaymentAccountsByUserId(@PathVariable String userId) {
-    //     return paymentAccountService.getAllPaymentAccountsByUserId(userId);
-    // }
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<?> getAllPaymentAccountsByUserId(@PathVariable String userId) {
+        return paymentAccountService.getAllPaymentAccountsByUserId(userId);
+    }
 
 
     @GetMapping("/{id}")
