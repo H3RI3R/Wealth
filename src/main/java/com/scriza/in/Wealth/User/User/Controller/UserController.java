@@ -101,27 +101,7 @@ public ResponseEntity<?> modifyBankDetails(@PathVariable String  userId,
     return paymentAccountService.updateBankDetails(userId, bankId, updatedBankDetails);
 }
 
-@GetMapping("/plans")
-public ResponseEntity<Map<String, Object>> getAvailablePlans() {
-    return userService.getAvailablePlans();
-}
 
-@PostMapping("/plans/purchase")
-public ResponseEntity<Map<String, Object>> purchasePlan(@RequestBody Map<String, String> requestBody) {
-    String planId = requestBody.get("planId");
-    String userId = requestBody.get("userId"); 
 
-    return userService.purchasePlan(planId, userId);
-}
-
-@GetMapping("/userPlans/{userId}")
-public ResponseEntity<Map<String, Object>> getUserPlans(@PathVariable String userId) { 
-    return userService.getUserPlans(userId); 
-}
-
-@GetMapping("/earnings/{userId}")
-public ResponseEntity<Map<String, Object>> getDailyEarnings(@PathVariable String userId) {
-    return userService.getDailyEarnings(userId); 
-}
 
 }
